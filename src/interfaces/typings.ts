@@ -4,3 +4,9 @@ export type CardProps = {
 	amount: number;
 	id: number;
 };
+
+
+export type AppState={
+	user:null
+	counter:number
+}

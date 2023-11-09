@@ -4,7 +4,7 @@ import '../../styles/sidebar.scss';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
-	const [activeLink, setActiveLink] = React.useState('');
+	const [activeLink, setActiveLink] = React.useState('users');
 	return (
 		<aside className='sidebar_container'>
 			<div className='switch_container'>

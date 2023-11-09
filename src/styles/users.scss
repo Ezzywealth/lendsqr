@@ -6,6 +6,7 @@ $login-bg-color: #fff;
 $secondary-color: #545f7d;
 $font-family: 'work sans';
 $input-border-color: rgba(#545f7d, 0.15);
+$table-border-color: rgba(#213f7d1a, 0.1);
 
 .details_card_container {
 	display: flex;
@@ -54,4 +55,49 @@ $input-border-color: rgba(#545f7d, 0.15);
 	font-size: 1.5rem;
 	font-weight: 600;
 	margin: 0;
+}
+
+.table-responsive {
+	overflow: auto;
+	margin-top: 40px;
+	background: #fff;
+	padding: 2rem;
+}
+
+.custom-table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 16px;
+	overflow: auto;
+}
+
+th td {
+	font-size: 0.75rem;
+	text-align: left;
+	vertical-align: middle;
+}
+
+th {
+	padding: 2rem 0;
+	color: $text-color;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-align: left;
+	margin: 0 0.5rem;
+}
+
+td {
+	padding: 16px;
+	text-align: left;
+	color: $primary-color;
+	font-weight: 400;
+	border-bottom: 1px solid $table-border-color;
+	border-left: none;
+	border-right: none;
+	font-size: o.875rem;
+}
+
+.filter-icon {
+	margin-left: 8px;
+	font-weight: bold;
 }
