@@ -11,11 +11,11 @@ const Layout = ({ children }: LayoutProps) => {
 	return (
 		<div className='layout'>
 			<Navbar />
-			<main>
-				<aside>
+			<main className='main_section_container'>
+				<section className='aside_container'>
 					<Sidebar />
-				</aside>
-				<section>{children}</section>
+				</section>
+				<section className='main_body'>{children}</section>
 			</main>
 		</div>
 	);

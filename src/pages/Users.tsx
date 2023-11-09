@@ -1,7 +1,15 @@
 import React from 'react';
+import Layout from '../components/Shared/Layout';
+import '../styles/users.scss';
+import DetailsCard from '../components/users/DetailsCard';
 
 const Users = () => {
-	return <div>Users</div>;
+	return (
+		<Layout>
+			<h2 className='users_title'>users</h2>
+			<DetailsCard />
+		</Layout>
+	);
 };
 
 export default Users;

@@ -28,6 +28,7 @@ body {
 	width: 100%;
 	box-sizing: border-box;
 	background: $login-bg-color;
+	box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .nav_search_form {
@@ -99,6 +100,7 @@ body {
 
 .bell_icon {
 	color: $primary-color;
+	cursor: pointer;
 }
 
 .user_avatar {
@@ -109,6 +111,13 @@ body {
 }
 
 .user_name {
+	color: $primary-color;
+	font-size: 1rem;
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
+}
+
+.arrow_down {
 	color: $primary-color;
 	font-size: 1rem;
 	font-family: 'Roboto', sans-serif;

@@ -25,7 +25,9 @@ const Navbar = () => {
 					<div className='user_info'>
 						<img src='/assets/images/user-image.jpg' alt='userImage' className='user_avatar' />
 						<h3 className='user_name'>Ezekiel</h3>
-						<RiArrowDownSFill size={20} />
+						<span className='arrow_down'>
+							<RiArrowDownSFill size={20} />
+						</span>
 					</div>
 				</section>
 			</div>
