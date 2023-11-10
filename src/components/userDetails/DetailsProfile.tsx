@@ -1,10 +1,13 @@
 import React from 'react';
-import { formatNumber, userTabs, usersData } from '../../utils/userDetails';
+import { formatNumber, userTabs } from '../../utils/userDetails';
 import { UserProps } from '../../interfaces/typings';
 import { FaNairaSign } from 'react-icons/fa6';
 import StarRating from './StarRating';
-const DetailsProfile = () => {
-	const [user, setUser] = React.useState<UserProps>(usersData[0]);
+
+type Props = {
+	user: UserProps;
+};
+const DetailsProfile = ({ user }: Props) => {
 	const [activeTab, setActiveTab] = React.useState<string>('General Details');
 	return (
 		<section className='profile_container'>

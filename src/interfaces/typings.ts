@@ -43,6 +43,11 @@ export type UserProps = {
 	office_email: string;
 	monthly_income: number;
 	loan_repayment: number;
-	socials: string[];
+	socials: Social[];
 	guarantor: Guarantor[];
+};
+
+export type Social = {
+	platform: string;
+	handle: string;
 };
