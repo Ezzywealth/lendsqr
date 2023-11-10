@@ -17,6 +17,7 @@ $status-color-opacity: 0.1;
 	flex-wrap: wrap;
 	gap: 26px;
 	width: 100%;
+	box-sizing: border-box;
 }
 
 .users_title {
@@ -62,18 +63,21 @@ $status-color-opacity: 0.1;
 }
 
 .table-responsive {
-	overflow-x: auto;
 	margin-top: 40px;
 	background: #fff;
 	padding: 2rem;
 	height: auto;
+	box-sizing: border-box;
+	overflow: auto;
+	width: 100%;
 }
 
 .custom-table {
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 16px;
-	overflow-x: auto;
+
+	box-sizing: border-box;
 }
 
 .table-body {
@@ -104,16 +108,17 @@ th td {
 }
 
 th {
-	padding: 2rem 23px;
+	padding: 2rem 5px;
 	color: $text-color;
 	font-weight: 600;
 	text-transform: uppercase;
 	text-align: left;
 	margin: 0 0.5rem;
+	font-size: 0.75rem;
 }
 
 td {
-	padding: 23px;
+	padding: 23px 5px;
 	text-align: left;
 	color: $primary-color;
 	font-weight: 400;
@@ -167,10 +172,22 @@ td {
 	margin-left: 8px;
 	font-weight: bold;
 	cursor: pointer;
+	width: 0.8rem;
+	height: 0.8rem;
 }
 
 .table-data-row {
 	position: relative;
+}
+
+table {
+	min-width: 900px;
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+tbody {
+	font-size: 0.875rem;
 }
 
 /************************Filter Modal styles *********************/
