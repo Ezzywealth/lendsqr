@@ -11,6 +11,7 @@ $table-border-color: rgba(#213f7d1a, 0.1);
 $box-shadow-color: rgba(#545f7d0a, 0.04);
 $box-shadow: 4px 4px 4px $box-shadow-color;
 $status-color-opacity: 0.1;
+$arrow-bg-color: rgba(#213f7d, 0.1);
 
 .details_card_container {
 	display: flex;
@@ -76,8 +77,12 @@ $status-color-opacity: 0.1;
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 16px;
-
 	box-sizing: border-box;
+}
+
+.filter_container {
+	display: flex;
+	align-items: center;
 }
 
 .table-body {
@@ -169,7 +174,7 @@ td {
 }
 
 .filter-icon {
-	margin-left: 8px;
+	margin-left: 4px;
 	font-weight: bold;
 	cursor: pointer;
 	width: 0.8rem;
@@ -303,4 +308,57 @@ tbody {
 	z-index: 100;
 	box-shadow: $box-shadow;
 	width: 170px;
+}
+
+/************************ Pagination styles ******************/
+.pagination-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.pagination-info {
+	font-size: 14px;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	color: $text-color;
+	select {
+		padding: 5px 0.9rem;
+		font-size: 14px;
+		background-color: $arrow-bg-color;
+		border: none;
+		outline: none;
+		color: $primary-color;
+		border-radius: 6px;
+	}
+}
+
+.pagination-pages {
+	display: flex;
+}
+
+.pagination-arrow {
+	font-size: 14px;
+	color: $primary-color;
+	cursor: pointer;
+	background-color: $arrow-bg-color;
+	border: none;
+}
+
+.pagination-page {
+	margin: 0 5px;
+	cursor: pointer;
+	color: $text-color;
+	font-weight: 400;
+	background-color: transparent;
+	border: none;
+}
+
+.pagination-page.active {
+	color: $text-color;
+	font-weight: 800;
+	background-color: transparent;
+	border: none;
 }

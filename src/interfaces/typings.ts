@@ -6,8 +6,14 @@ export type CardProps = {
 };
 
 export type AppState = {
-	user: null;
+	users: UserProps[];
+	filteredUsers: UserProps[];
 	counter: number;
+	usersLoading: boolean;
+	usersError: string;
+	currentPage: number;
+	totalPages: number;
+	pageSize:number;
 };
 
 export type Guarantor = {

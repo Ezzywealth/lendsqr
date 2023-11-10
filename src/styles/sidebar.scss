@@ -33,14 +33,9 @@ $active-bg-color: #e8fafa;
 	width: 100%;
 }
 
-.sidebar_links {
-}
-
-.links_section {
-}
-
 .active_link {
 	background: $active-bg-color;
+	border-left: 3px solid $button-color;
 }
 
 .inactive_link {

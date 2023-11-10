@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useAppDispatch } from '../../../../Redux/store';
+import { buttonPagination } from '../../../../Redux/slices/userSlice';
 
 const TableHook = () => {
 	const [showFilterModal, setShowFilterModal] = React.useState(false);
@@ -10,7 +12,7 @@ const TableHook = () => {
 	const [email, setEmail] = useState('');
 	const [status, setStatus] = useState('');
 	const [showOptionsModal, setShowOptionsModal] = useState(false);
-
+const dispatch = useAppDispatch()
 	const onClose = () => {
 		console.log('onClose');
 	};
@@ -18,6 +20,11 @@ const TableHook = () => {
 	const applyFilters = () => {
 		console.log('applyFilters');
 	};
+
+	const handlePageChange=(page:number)=>{
+		console.log(page)
+		dispatch(buttonPagination(page))
+	}
 	return {
 		showFilterModal,
 		setShowFilterModal,
@@ -39,6 +46,7 @@ const TableHook = () => {
 		setStatus,
 		showOptionsModal,
 		setShowOptionsModal,
+		handlePageChange
 	};
 };
 

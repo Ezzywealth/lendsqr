@@ -2,21 +2,19 @@ import React, { ReactNode, useEffect } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import '../../styles/layout.scss';
-import { useDispatch } from 'react-redux';
 import { fetchLoans } from '../../Redux/slices/userSlice';
-import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
-import { AppState } from '../../interfaces/typings';
+import { useAppDispatch } from '../../Redux/store';
 
 interface LayoutProps {
 	children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-	// const dispatch = useDispatch<ThunkDispatch<AppState, unknown, AnyAction>>();
+	const dispatch = useAppDispatch();
 
-	// useEffect(() => {
-	// 	dispatch(fetchLoans());
-	// }, []);
+	useEffect(() => {
+		dispatch(fetchLoans());
+	}, []);
 
 	return (
 		<div className='layout'>
