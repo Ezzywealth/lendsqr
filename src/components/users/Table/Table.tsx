@@ -1,8 +1,12 @@
 import React from 'react';
 import { tableHeaders, usersData } from '../../../utils/userDetails';
-import { BsFilter, BsThreeDotsVertical } from 'react-icons/bs';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import TableHook from './Hook/TableHook';
+import Modal from './FilterModal';
 
 const Table = () => {
+	const { showFilterModal, setShowFilterModal } = TableHook();
+
 	return (
 		<div className='table-responsive'>
 			<table className='custom-table'>
@@ -12,13 +16,13 @@ const Table = () => {
 							return (
 								<th key={index}>
 									{header}
-									<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter-icon' />
+									<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter-icon' onClick={() => setShowFilterModal(true)} />
 								</th>
 							);
 						})}
 					</tr>
 				</thead>
-				<tbody>
+				<tbody className='table-body'>
 					{usersData.slice(0, 9).map((user, index) => {
 						return (
 							<tr key={index}>
@@ -34,6 +38,11 @@ const Table = () => {
 							</tr>
 						);
 					})}
+					<tr className={`${showFilterModal ? 'filter-modal' : 'hide-modal'}`}>
+						<td colSpan={3}>
+							<Modal setShowFilterModal={setShowFilterModal} />
+						</td>
+					</tr>
 				</tbody>
 			</table>
 		</div>

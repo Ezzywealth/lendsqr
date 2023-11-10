@@ -3,6 +3,7 @@ $button-color: #39cdcc;
 $text-color: #545f7d;
 $primary-bg-color: #f5f6fa;
 $login-bg-color: #fff;
+$secondary-bg-color: #fff;
 $secondary-color: #545f7d;
 $font-family: 'work sans';
 $input-border-color: rgba(#545f7d, 0.15);
@@ -71,6 +72,26 @@ $table-border-color: rgba(#213f7d1a, 0.1);
 	overflow: auto;
 }
 
+.table-body {
+	position: relative;
+}
+
+.filter-modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: auto;
+	height: 100%;
+	background: $secondary-bg-color;
+	z-index: 100;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.hide-modal {
+	display: none;
+}
+
 th td {
 	font-size: 0.75rem;
 	text-align: left;
@@ -100,4 +121,83 @@ td {
 .filter-icon {
 	margin-left: 8px;
 	font-weight: bold;
+}
+
+/************************Modal styles *********************/
+
+.modal {
+	background-color: $secondary-bg-color;
+	width: 270px;
+}
+
+.modal-content {
+	background: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	width: 270px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	h2 {
+		margin-bottom: 20px;
+	}
+
+	label {
+		display: block;
+		font-weight: 500;
+		color: $text-color;
+		font-size: 0.875rem;
+
+		input,
+		select {
+			width: 100%;
+			padding: 12px 20px;
+			margin-top: 5px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			color: $primary-color;
+			height: auto;
+			font-size: 0.875rem;
+		}
+
+		input:focus,
+		select:focus {
+			outline: 1px solid $primary-color;
+		}
+
+		select .options {
+			color: $primary-color;
+			padding: 2rem;
+		}
+	}
+
+	.button-container {
+		display: flex;
+		justify-content: flex-start;
+		margin-top: 10px;
+	}
+
+	.btn {
+		margin-left: 10px;
+		padding: 12px 30px;
+		background: $button-color;
+		border: none;
+		border-radius: 8px;
+		font-size: 14px;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.apply_button {
+		background: $button-color;
+		color: #fff;
+	}
+
+	.cancel_button {
+		background: #fff;
+		color: $primary-color;
+		border: 1px solid $text-color;
+	}
 }
