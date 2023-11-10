@@ -1,14 +1,32 @@
 import React from 'react';
+import { BsEye, BsPersonXFill, BsPersonCheckFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
-const OptionsModal = () => {
+type Props = {
+	id: number;
+	setShowOptionsModal: (showOptionsModal: boolean) => void;
+};
+const OptionsModal = ({ id, setShowOptionsModal }: Props) => {
 	return (
 		<div className='options_modal_container'>
-			<div className='options_modal'>
-				<h3 className='options_modal_title'>View Details</h3>
-				<div className='options_modal_btns'>
-					<button className='options_modal_btn'>Blacklist user</button>
-					<button className='options_modal_btn'>Activate User</button>
-				</div>
+			<div className='close-icon-container'>
+				<span onClick={() => setShowOptionsModal(false)} className='close-icon'>
+					X
+				</span>
+			</div>
+			<div className='options_modal_btns'>
+				<Link to={`/users/${id}`}>
+					<button className='options_modal_btn'>
+						<BsEye /> View Details
+					</button>
+				</Link>
+				<button className='options_modal_btn'>
+					<BsPersonXFill /> Blacklist user
+				</button>
+				<button className='options_modal_btn'>
+					<BsPersonCheckFill />
+					Activate User
+				</button>
 			</div>
 		</div>
 	);

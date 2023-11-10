@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import { Provider } from 'react-redux';
 import store from './Redux/store';
+import UserDetails from './pages/UserDetails';
 
 const router = createBrowserRouter([
 	{
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 	{
 		path: '/users',
 		element: <Users />,
+	},
+	{
+		path: '/users/:id',
+		element: <UserDetails />,
 	},
 ]);
 

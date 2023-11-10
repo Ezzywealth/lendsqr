@@ -1,7 +1,14 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import Layout from '../components/Shared/Layout';
 
 const UserDetails = () => {
-	return <div>UserDetails</div>;
+	const params = useParams();
+	return (
+		<Layout>
+			<div>UserDetails {params.id}</div>;
+		</Layout>
+	);
 };
 
 export default UserDetails;

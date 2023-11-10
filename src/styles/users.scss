@@ -8,6 +8,9 @@ $secondary-color: #545f7d;
 $font-family: 'work sans';
 $input-border-color: rgba(#545f7d, 0.15);
 $table-border-color: rgba(#213f7d1a, 0.1);
+$box-shadow-color: rgba(#545f7d0a, 0.04);
+$box-shadow: 4px 4px 4px $box-shadow-color;
+$status-color-opacity: 0.1;
 
 .details_card_container {
 	display: flex;
@@ -31,7 +34,7 @@ $table-border-color: rgba(#213f7d1a, 0.1);
 	flex: 1;
 	width: 100%;
 	padding: 20px 30px;
-	box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: $box-shadow;
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
@@ -59,21 +62,23 @@ $table-border-color: rgba(#213f7d1a, 0.1);
 }
 
 .table-responsive {
-	overflow: auto;
+	overflow-x: auto;
 	margin-top: 40px;
 	background: #fff;
 	padding: 2rem;
+	height: auto;
 }
 
 .custom-table {
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 16px;
-	overflow: auto;
+	overflow-x: auto;
 }
 
 .table-body {
 	position: relative;
+	height: 100%;
 }
 
 .filter-modal {
@@ -99,7 +104,7 @@ th td {
 }
 
 th {
-	padding: 2rem 0;
+	padding: 2rem 23px;
 	color: $text-color;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -108,7 +113,7 @@ th {
 }
 
 td {
-	padding: 16px;
+	padding: 23px;
 	text-align: left;
 	color: $primary-color;
 	font-weight: 400;
@@ -118,16 +123,61 @@ td {
 	font-size: o.875rem;
 }
 
+.close-icon-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.close-icon {
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 0.875rem;
+	color: $primary-color;
+}
+
+.active-bg {
+	color: #39cd62;
+	background: rgba(#39cd62, $status-color-opacity);
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+}
+
+.inactive-bg {
+	color: #545f7d;
+	background: rgba(#545f7d, $status-color-opacity);
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+}
+
+.pending-bg {
+	background: rgba(#e9b200, $status-color-opacity);
+	color: #e9b200;
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+}
+
+.blacklisted-bg {
+	background: rgba(#e4033b, $status-color-opacity);
+	color: #e4033b;
+	border-radius: 1rem;
+	padding: 0.5rem 1rem;
+}
+
 .filter-icon {
 	margin-left: 8px;
 	font-weight: bold;
 }
 
-/************************Modal styles *********************/
+.table-data-row {
+	position: relative;
+}
+
+/************************Filter Modal styles *********************/
 
 .modal {
 	background-color: $secondary-bg-color;
 	width: 270px;
+	border: 1px solid $input-border-color;
 }
 
 .modal-content {
@@ -135,7 +185,7 @@ td {
 	padding: 20px;
 	border-radius: 8px;
 	width: 270px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-shadow: $box-shadow;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -200,4 +250,39 @@ td {
 		color: $primary-color;
 		border: 1px solid $text-color;
 	}
+}
+
+/************************* options modal styles **********************/
+.options_modal_container {
+	background: $secondary-bg-color;
+	padding: 20px;
+	z-index: 100;
+	border: 1px solid $input-border-color;
+	width: 100%;
+}
+
+.options_modal_btns {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.options_modal_btn {
+	display: flex;
+	gap: 10px;
+	background: none;
+	border: none;
+	color: $text-color;
+	font-size: 0.875rem;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.options-modal {
+	position: absolute;
+	right: 1rem;
+	top: 10px;
+	z-index: 100;
+	box-shadow: $box-shadow;
+	width: 170px;
 }

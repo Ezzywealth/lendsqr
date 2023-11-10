@@ -9,6 +9,7 @@ const TableHook = () => {
 	const [date, setDate] = useState('');
 	const [email, setEmail] = useState('');
 	const [status, setStatus] = useState('');
+	const [showOptionsModal, setShowOptionsModal] = useState(false);
 
 	const onClose = () => {
 		console.log('onClose');
@@ -16,12 +17,6 @@ const TableHook = () => {
 
 	const applyFilters = () => {
 		console.log('applyFilters');
-		console.log('organization', organization);
-		console.log('username', username);
-		console.log('phoneNumber', phoneNumber);
-		console.log('date', date);
-		console.log('email', email);
-		console.log('status', status);
 	};
 	return {
 		showFilterModal,
@@ -42,6 +37,8 @@ const TableHook = () => {
 		setEmail,
 		status,
 		setStatus,
+		showOptionsModal,
+		setShowOptionsModal,
 	};
 };
 
