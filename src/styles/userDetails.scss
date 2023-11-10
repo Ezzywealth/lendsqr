@@ -1,0 +1,61 @@
+$primary-color: #213f7d;
+$button-color: #39cdcc;
+$text-color: #545f7d;
+$primary-bg-color: #f5f6fa;
+$login-bg-color: #fff;
+$secondary-color: #545f7d;
+$input-border-color: rgba(#545f7d, 0.15);
+$font-family: sans-serif;
+$active-bg-color: #e8fafa;
+
+.header_container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 1.875rem;
+	gap: 10px;
+}
+
+.back_arrow {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	color: $text-color;
+	font-size: 1rem;
+	font-family: $font-family;
+}
+
+.header_title {
+	color: $primary-color;
+	font-size: 1.5rem;
+	font-weight: 500;
+	font-family: $font-family;
+}
+
+.btn_container {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.btn {
+	background: transparent;
+	padding: 12px 1rem;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	font-weight: 600;
+	font-family: $font-family;
+	text-transform: uppercase;
+	letter-spacing: 0.01rem;
+	cursor: pointer;
+}
+
+.blacklist_btn {
+	border: 1px solid #e4033b;
+	color: #e4033b;
+}
+
+.activate_btn {
+	border: 1px solid $button-color;
+	color: $button-color;
+}

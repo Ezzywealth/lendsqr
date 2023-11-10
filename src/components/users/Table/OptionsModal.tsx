@@ -3,7 +3,7 @@ import { BsEye, BsPersonXFill, BsPersonCheckFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
 type Props = {
-	id: number;
+	id: string;
 	setShowOptionsModal: (showOptionsModal: boolean) => void;
 };
 const OptionsModal = ({ id, setShowOptionsModal }: Props) => {

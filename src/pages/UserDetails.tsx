@@ -1,12 +1,23 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '../components/Shared/Layout';
+import DetailsHeader from '../components/userDetails/DetailsHeader';
+import DetailsProfile from '../components/userDetails/DetailsProfile';
+import DetailsInformation from '../components/userDetails/DetailsInformation';
+import '../styles/userDetails.scss';
+import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 
 const UserDetails = () => {
 	const params = useParams();
 	return (
 		<Layout>
-			<div>UserDetails {params.id}</div>;
+			<section className='back_arrow'>
+				<HiOutlineArrowNarrowLeft size={30} />
+				Back to Users
+			</section>
+			<DetailsHeader />
+			<DetailsProfile />
+			<DetailsInformation />
 		</Layout>
 	);
 };

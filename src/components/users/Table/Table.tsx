@@ -7,7 +7,7 @@ import OptionsModal from './OptionsModal';
 
 const Table = () => {
 	const { showFilterModal, setShowFilterModal, showOptionsModal, setShowOptionsModal } = TableHook();
-	const [activeRow, setActiveRow] = React.useState<null | number>(null);
+	const [activeRow, setActiveRow] = React.useState<null | string>(null);
 
 	return (
 		<div className='table-responsive'>

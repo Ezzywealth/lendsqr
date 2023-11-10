@@ -5,8 +5,7 @@ export type CardProps = {
 	id: number;
 };
 
-
-export type AppState={
-	user:null
-	counter:number
-}
+export type AppState = {
+	user: null;
+	counter: number;
+};
