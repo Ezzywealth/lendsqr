@@ -11,7 +11,7 @@ import Pagination from '../../Shared/Pagination';
 const Table = () => {
 	const { showFilterModal, setShowFilterModal, showOptionsModal, setShowOptionsModal, handlePageChange } = TableHook();
 	const [activeRow, setActiveRow] = React.useState<null | string>(null);
-	const { filteredUsers, users, currentPage, totalPages, pageSize } = useSelector((state: any) => state.counter);
+	const { filteredUsers, currentPage, totalPages, pageSize, noOfItems } = useSelector((state: any) => state.counter);
 
 	return (
 		<div>
@@ -67,7 +67,8 @@ const Table = () => {
 					</tbody>
 				</table>
 			</div>
-			<Pagination totalItems={users.length} currentPage={currentPage} itemsPerPage={pageSize} totalPages={totalPages} onPageChange={handlePageChange} />
+
+			<Pagination totalItems={noOfItems} currentPage={currentPage} itemsPerPage={pageSize} totalPages={totalPages} onPageChange={handlePageChange} />
 		</div>
 	);
 };

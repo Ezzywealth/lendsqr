@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../../Redux/store';
-import { buttonPagination } from '../../../../Redux/slices/userSlice';
+import { activateUser, blackListUser, buttonPagination, filterUsers } from '../../../../Redux/slices/userSlice';
 
 const TableHook = () => {
 	const [showFilterModal, setShowFilterModal] = React.useState(false);
@@ -12,19 +12,29 @@ const TableHook = () => {
 	const [email, setEmail] = useState('');
 	const [status, setStatus] = useState('');
 	const [showOptionsModal, setShowOptionsModal] = useState(false);
-const dispatch = useAppDispatch()
+	const dispatch = useAppDispatch();
 	const onClose = () => {
 		console.log('onClose');
 	};
 
 	const applyFilters = () => {
 		console.log('applyFilters');
+		console.log(organization, username, phoneNumber, date, email, status);
+		dispatch(filterUsers({ organization, username, phoneNumber, date, email, status }));
 	};
 
-	const handlePageChange=(page:number)=>{
-		console.log(page)
-		dispatch(buttonPagination(page))
-	}
+	const handlePageChange = (page: number) => {
+		console.log(page);
+		dispatch(buttonPagination(page));
+	};
+
+	const handleActivateUser = (id: string) => {
+		dispatch(activateUser({ id }));
+	};
+
+	const handleBlacklistUser = (id: string) => {
+		dispatch(blackListUser({ id }));
+	};
 	return {
 		showFilterModal,
 		setShowFilterModal,
@@ -46,7 +56,9 @@ const dispatch = useAppDispatch()
 		setStatus,
 		showOptionsModal,
 		setShowOptionsModal,
-		handlePageChange
+		handlePageChange,
+		handleActivateUser,
+		handleBlacklistUser,
 	};
 };
 

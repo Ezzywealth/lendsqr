@@ -1,21 +1,13 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import '../../styles/layout.scss';
-import { fetchLoans } from '../../Redux/slices/userSlice';
-import { useAppDispatch } from '../../Redux/store';
 
 interface LayoutProps {
 	children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-	const dispatch = useAppDispatch();
-
-	useEffect(() => {
-		dispatch(fetchLoans());
-	}, []);
-
 	return (
 		<div className='layout'>
 			<Navbar />

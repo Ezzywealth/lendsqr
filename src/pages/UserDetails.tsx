@@ -26,7 +26,7 @@ const UserDetails = () => {
 				<HiOutlineArrowNarrowLeft size={30} />
 				Back to Users
 			</section>
-			<DetailsHeader />
+			<DetailsHeader id={user.id} />
 			<DetailsProfile user={user} />
 			<DetailsInformation user={user} />
 		</Layout>

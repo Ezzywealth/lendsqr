@@ -32,25 +32,31 @@ const Pagination = ({ currentPage, totalPages, itemsPerPage, totalItems, onPageC
 						handleItemsPerPage(e);
 						onPageChange(1);
 					}}>
-					<option value={5}>5</option>
+					<option value={itemsPerPage} disabled>
+						{itemsPerPage}
+					</option>
 					<option value={10}>10</option>
 					<option value={20}>20</option>
+					<option value={25}>25</option>
+					<option value={50}>50</option>
 				</select>{' '}
 				out of {totalItems}
 			</div>
-			<div className='pagination-pages'>
-				<span className='pagination-arrow'>
-					<MdKeyboardArrowLeft size={25} onClick={() => handlePageChange(currentPage - 1)} />
-				</span>
-				{Array.from({ length: totalPages }, (_, index) => (
-					<button key={index} className={`pagination-page ${currentPage === index + 1 ? 'active' : ''}`} onClick={() => handlePageChange(index + 1)}>
-						{index + 1}
-					</button>
-				))}
-				<span className='pagination-arrow'>
-					<MdKeyboardArrowRight size={25} onClick={() => handlePageChange(currentPage + 1)} />
-				</span>
-			</div>
+			{totalPages > 1 && (
+				<div className='pagination-pages'>
+					<span className='pagination-arrow'>
+						<MdKeyboardArrowLeft size={25} onClick={() => handlePageChange(currentPage - 1)} />
+					</span>
+					{Array.from({ length: totalPages }, (_, index) => (
+						<button key={index} className={`pagination-page ${currentPage === index + 1 ? 'active' : ''}`} onClick={() => handlePageChange(index + 1)}>
+							{index + 1}
+						</button>
+					))}
+					<span className='pagination-arrow'>
+						<MdKeyboardArrowRight size={25} onClick={() => handlePageChange(currentPage + 1)} />
+					</span>
+				</div>
+			)}
 		</div>
 	);
 };

@@ -1,12 +1,15 @@
 import React from 'react';
 import { BsEye, BsPersonXFill, BsPersonCheckFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import TableHook from './Hook/TableHook';
 
 type Props = {
 	id: string;
 	setShowOptionsModal: (showOptionsModal: boolean) => void;
 };
 const OptionsModal = ({ id, setShowOptionsModal }: Props) => {
+	const { handleActivateUser, handleBlacklistUser } = TableHook();
+
 	return (
 		<div className='options_modal_container'>
 			<div className='close-icon-container'>
@@ -20,10 +23,20 @@ const OptionsModal = ({ id, setShowOptionsModal }: Props) => {
 						<BsEye /> View Details
 					</button>
 				</Link>
-				<button className='options_modal_btn'>
+				<button
+					className='options_modal_btn'
+					onClick={() => {
+						handleBlacklistUser(id);
+						setShowOptionsModal(false);
+					}}>
 					<BsPersonXFill /> Blacklist user
 				</button>
-				<button className='options_modal_btn'>
+				<button
+					className='options_modal_btn'
+					onClick={() => {
+						handleActivateUser(id);
+						setShowOptionsModal(false);
+					}}>
 					<BsPersonCheckFill />
 					Activate User
 				</button>

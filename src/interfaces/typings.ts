@@ -13,7 +13,8 @@ export type AppState = {
 	usersError: string;
 	currentPage: number;
 	totalPages: number;
-	pageSize:number;
+	pageSize: number;
+	noOfItems: number;
 };
 
 export type Guarantor = {
