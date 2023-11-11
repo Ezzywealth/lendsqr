@@ -28,11 +28,11 @@ const TableHook = () => {
 		dispatch(buttonPagination(page));
 	};
 
-	const handleActivateUser = (id: string) => {
+	const handleActivateUser = (id: string | undefined) => {
 		dispatch(activateUser({ id }));
 	};
 
-	const handleBlacklistUser = (id: string) => {
+	const handleBlacklistUser = (id: string  | undefined) => {
 		dispatch(blackListUser({ id }));
 	};
 	return {

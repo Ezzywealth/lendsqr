@@ -26,10 +26,17 @@ export const cardDetails: CardProps[] = [
 		amount: 102453,
 	},
 ];
-export function formatNumber(number: Number) {
-	const numberString = number.toString();
-	return numberString.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+export function formatNumber(number: Number | undefined) {
+	const numberString = number?.toString();
+	return numberString?.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
+
+export const admin = {
+	id: 1,
+	firstName: 'Ezekiel',
+	lastName: 'Udiomuno',
+	image: '/assets/images/user-image.jpg',
+};
 
 export const userTabs = ['General Details', 'Documents', 'Bank Details', 'Loans', 'Savings', 'App and System'];
 export const tableHeaders = ['organization', 'username', 'email', 'phone number', 'date joined', 'status'];

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/login.scss';
-import LoginForm from '../components/LoginForm';
+import LoginForm from '../components/Login/LoginForm';
 import Logo from '../components/Shared/Logo';
 
 const Login = () => {

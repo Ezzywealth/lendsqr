@@ -5,12 +5,34 @@ export type CardProps = {
 	id: number;
 };
 
+export type LoginProps = {
+	email: string;
+	password: string;
+};
+
+export type AdminProps = {
+	id: number;
+	image: string;
+	firstName: string;
+	lastName: string;
+};
+
+export type AuthProps = {
+	admin: undefined | AdminProps;
+	loginLoading: boolean;
+	loginError: string;
+};
+
 export type AppState = {
+	admin: UserProps | undefined;
 	users: UserProps[];
+	user: UserProps | undefined;
 	filteredUsers: UserProps[];
 	counter: number;
 	usersLoading: boolean;
 	usersError: string;
+	userLoading: boolean;
+	userError: string;
 	currentPage: number;
 	totalPages: number;
 	pageSize: number;

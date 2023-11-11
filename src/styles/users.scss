@@ -30,6 +30,14 @@ $arrow-bg-color: rgba(#213f7d, 0.1);
 	text-transform: capitalize;
 }
 
+.error_message {
+	display: flex;
+	width: 100%;
+	color: #e4033b;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
 .card {
 	background: #fff;
 	border-radius: 10px;

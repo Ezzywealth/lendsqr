@@ -2,7 +2,7 @@ import React from 'react';
 import TableHook from '../users/Table/Hook/TableHook';
 
 type Props = {
-	id: string;
+	id: string | undefined;
 };
 const DetailsHeader = ({ id }: Props) => {
 	const { handleActivateUser, handleBlacklistUser } = TableHook();

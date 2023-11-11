@@ -13,10 +13,6 @@ import UserDetails from './pages/UserDetails';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <App />,
-	},
-	{
-		path: '/login',
 		element: <Login />,
 	},
 	{

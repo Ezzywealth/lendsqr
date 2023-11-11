@@ -7,18 +7,21 @@ import DetailsInformation from '../components/userDetails/DetailsInformation';
 import '../styles/userDetails.scss';
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
-import { UserProps } from '../interfaces/typings';
-import { usersData } from '../utils/userDetails';
+import { useAppDispatch } from '../Redux/store';
+import { RootState, fetchUserById } from '../Redux/slices/userSlice';
+import { useSelector } from 'react-redux';
 
 const UserDetails = () => {
 	const params = useParams();
 	const navigate = useNavigate();
-	const [user, setUser] = React.useState<UserProps>(usersData[0]);
+	const dispatch = useAppDispatch();
+	const { user, userError } = useSelector((state: RootState) => state.usersData);
 
 	useEffect(() => {
-		const user = usersData.find((user) => user.id === params.id);
-		if (user) setUser(user);
-	}, [params.id]);
+		if (params?.id) {
+			dispatch(fetchUserById(params?.id));
+		}
+	}, [params, dispatch]);
 
 	return (
 		<Layout>
@@ -26,9 +29,15 @@ const UserDetails = () => {
 				<HiOutlineArrowNarrowLeft size={30} />
 				Back to Users
 			</section>
-			<DetailsHeader id={user.id} />
-			<DetailsProfile user={user} />
-			<DetailsInformation user={user} />
+			{!user && userError ? (
+				<h2 className='error message'>{userError}</h2>
+			) : (
+				<>
+					<DetailsHeader id={user?.id} />
+					<DetailsProfile user={user} />
+					<DetailsInformation user={user} />
+				</>
+			)}
 		</Layout>
 	);
 };

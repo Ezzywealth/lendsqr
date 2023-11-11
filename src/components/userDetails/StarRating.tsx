@@ -2,10 +2,11 @@ import React from 'react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 
 type Props = {
-	rating: number;
+	rating?: number;
 };
 
-const StarRating = ({ rating }: Props) => {
+const StarRating = ({ rating=0 }: Props) => {
+
 	const filledStars = Math.floor(rating);
 	const remainder = 3 - rating;
 

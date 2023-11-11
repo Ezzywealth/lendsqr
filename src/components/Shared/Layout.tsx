@@ -1,13 +1,32 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import '../../styles/layout.scss';
+import { useSelector } from 'react-redux';
+import LoadingSpinner from './LoadingSpinner';
+import { useAppDispatch } from '../../Redux/store';
+import { setAdmin } from '../../Redux/slices/authSlice';
+import { obfuscateToken } from '../../utils/encryptTokens';
 
 interface LayoutProps {
 	children: ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
+	const { usersLoading, userLoading } = useSelector((state: any) => state.users);
+	const dispatch = useAppDispatch();
+	const admin = localStorage.getItem('admin') && JSON.parse(obfuscateToken(false, localStorage.getItem('admin') as string));
+
+	useEffect(() => {
+		if (admin) {
+			dispatch(setAdmin(admin));
+		}
+	}, [dispatch, admin]);
+
+	if (usersLoading || userLoading) {
+		return <LoadingSpinner />;
+	}
+
 	return (
 		<div className='layout'>
 			<Navbar />

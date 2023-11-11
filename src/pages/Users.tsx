@@ -3,17 +3,17 @@ import Layout from '../components/Shared/Layout';
 import '../styles/users.scss';
 import DetailsCard from '../components/users/DetailsCard';
 import Table from '../components/users/Table/Table';
-import { fetchLoans } from '../Redux/slices/userSlice';
+import { fetchUsers } from '../Redux/slices/userSlice';
 import { useAppDispatch } from '../Redux/store';
 import { useSelector } from 'react-redux';
 
 const Users = () => {
 	const dispatch = useAppDispatch();
-	const { users } = useSelector((state: any) => state.counter);
+	const { users } = useSelector((state: any) => state.users);
 
 	useEffect(() => {
 		if (users.length < 1) {
-			dispatch(fetchLoans());
+			dispatch(fetchUsers());
 		}
 	}, [users.length, dispatch]);
 

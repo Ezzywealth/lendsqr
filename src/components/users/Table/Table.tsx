@@ -11,7 +11,7 @@ import Pagination from '../../Shared/Pagination';
 const Table = () => {
 	const { showFilterModal, setShowFilterModal, showOptionsModal, setShowOptionsModal, handlePageChange } = TableHook();
 	const [activeRow, setActiveRow] = React.useState<null | string>(null);
-	const { filteredUsers, currentPage, totalPages, pageSize, noOfItems } = useSelector((state: any) => state.counter);
+	const { filteredUsers, currentPage, totalPages, pageSize, noOfItems } = useSelector((state: any) => state.users);
 
 	return (
 		<div>
