@@ -52,7 +52,8 @@ export type MonthlyIncomeProp = {
 };
 
 export type UserProps = {
-	id: string;
+	customId: string;
+	id: number;
 	fullName: string;
 	profile_picture: string;
 	organization: string;

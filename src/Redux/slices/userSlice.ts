@@ -2,6 +2,7 @@ import { usersData } from '../../utils/userDetails';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AppState, UserProps } from '../../interfaces/typings';
 import axios from 'axios';
+import { getAllUsers } from '../../utils/Database/indexDb';
 
 const base_url = process.env.REACT_APP_API;
 const initialState: AppState = {
@@ -22,16 +23,25 @@ const initialState: AppState = {
 
 // function to mock an api call using mocky.io and axios, and then return the users data
 export const fetchUsers = createAsyncThunk('fetchUsers', async () => {
-	const res = await axios.get(`${base_url}`);
-	console.log(res);
-	return usersData;
+	let data: UserProps[] = [];
+	// fetch the users from indexedDB and set the data to the users array
+	await getAllUsers((users) => {
+		data = users;
+	});
+	await axios.get(`${base_url}`);
+
+	if (data.length !== 0) {
+		return data;
+	} else {
+		return [];
+	}
 });
 
 // a function to mock an api call using mocky.io and axios, and then return a single user details
 export const fetchUserById = createAsyncThunk('fetchUser', async (id: string) => {
 	const res = await axios.get(`${base_url}`);
 	console.log(res);
-	const user: UserProps | undefined = usersData.find((user) => user.id === id);
+	const user: UserProps | undefined = usersData.find((user) => user.customId === id);
 	return user;
 });
 
@@ -62,7 +72,7 @@ const counterSlice = createSlice({
 
 			// map through the users array and change the status of the user to blacklisted
 			state.users = state.users.map((item) => {
-				if (item.id === id) {
+				if (item.customId === id) {
 					return {
 						...item,
 						status: 'Blacklisted',
@@ -73,7 +83,7 @@ const counterSlice = createSlice({
 
 			// map through the filteredUsers array and change the status of the user to blacklisted
 			state.filteredUsers = state.filteredUsers.map((item) => {
-				if (item.id === id) {
+				if (item.customId === id) {
 					return {
 						...item,
 						status: 'Blacklisted',
@@ -88,7 +98,7 @@ const counterSlice = createSlice({
 
 			// map through the users array and change the status of the user to active
 			state.users = state.users.map((item) => {
-				if (item.id === id) {
+				if (item.customId === id) {
 					return {
 						...item,
 						status: 'Active',
@@ -99,7 +109,7 @@ const counterSlice = createSlice({
 
 			// map through the filteredUsers array and change the status of the user to active
 			state.filteredUsers = state.filteredUsers.map((item) => {
-				if (item.id === id) {
+				if (item.customId === id) {
 					return {
 						...item,
 						status: 'Active',
@@ -179,6 +189,7 @@ const counterSlice = createSlice({
 			state.usersError = '';
 		});
 		builder.addCase(fetchUserById.fulfilled, (state, action) => {
+			console.log(action.payload);
 			state.user = action.payload;
 			state.userLoading = false;
 			state.userError = '';

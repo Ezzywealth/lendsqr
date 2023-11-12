@@ -3,6 +3,7 @@ import axios from 'axios';
 import { admin } from '../../utils/userDetails';
 import { obfuscateToken } from '../../utils/encryptTokens';
 import { AdminProps, AuthProps, LoginProps } from '../../interfaces/typings';
+import { addUsers } from '../../utils/Database/indexDb';
 
 const base_url = process.env.REACT_APP_API;
 
@@ -15,6 +16,11 @@ const initialState: AuthProps = {
 export const loginService = createAsyncThunk<AdminProps, LoginProps>('loginService', async (data) => {
 	console.log(data);
 	const res = await axios.get(`${base_url}`);
+	if (res.status === 200) {
+		console.log('yes');
+	}
+	const result = await addUsers();
+	console.log(result);
 	console.log(res);
 	return admin;
 });
@@ -36,6 +42,7 @@ const authSlice = createSlice({
 			state.loginLoading = false;
 			state.admin = action.payload;
 			localStorage.setItem('admin', obfuscateToken(true, JSON.stringify(action.payload)));
+
 			window.location.href = '/users';
 		});
 		builder.addCase(loginService.rejected, (state, action) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/login.scss';
 import LoginForm from '../components/Login/LoginForm';
 import Logo from '../components/Shared/Logo';

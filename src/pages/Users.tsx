@@ -6,16 +6,16 @@ import Table from '../components/users/Table/Table';
 import { fetchUsers } from '../Redux/slices/userSlice';
 import { useAppDispatch } from '../Redux/store';
 import { useSelector } from 'react-redux';
+import { RootState } from '../Redux/slices/authSlice';
 
 const Users = () => {
 	const dispatch = useAppDispatch();
-	const { users } = useSelector((state: any) => state.users);
+	const [called, setCalled] = React.useState(false);
 
 	useEffect(() => {
-		if (users.length < 1) {
-			dispatch(fetchUsers());
-		}
-	}, [users.length, dispatch]);
+		dispatch(fetchUsers());
+		return;
+	}, []);
 
 	return (
 		<Layout>

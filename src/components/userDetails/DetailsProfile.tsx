@@ -16,7 +16,7 @@ const DetailsProfile = ({ user }: Props) => {
 					<img src={user?.profile_picture} alt={user?.username} className='user_image' />
 					<div className='name_id'>
 						<h3>{user?.fullName}</h3>
-						<p>{user?.id}</p>
+						<p>{user?.customId}</p>
 					</div>
 				</div>
 				<div className='divider'></div>

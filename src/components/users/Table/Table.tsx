@@ -34,7 +34,7 @@ const Table = () => {
 					<tbody className='table-body'>
 						{filteredUsers?.map((user: UserProps) => {
 							return (
-								<tr key={user.id} className='table-data-row'>
+								<tr key={user.customId} className='table-data-row'>
 									<td>{user.organization}</td>
 									<td>{user.username}</td>
 									<td>{user.email}</td>
@@ -47,13 +47,13 @@ const Table = () => {
 										<BsThreeDotsVertical
 											size={20}
 											onClick={() => {
-												setActiveRow(user.id);
+												setActiveRow(user.customId);
 												setShowOptionsModal(true);
 											}}
 											cursor='pointer'
 										/>
-										<div className={`${showOptionsModal && activeRow === user.id ? 'options-modal' : 'hide-modal'}`}>
-											<OptionsModal id={user.id} setShowOptionsModal={setShowOptionsModal} />
+										<div className={`${showOptionsModal && activeRow === user.customId ? 'options-modal' : 'hide-modal'}`}>
+											<OptionsModal id={user.customId} setShowOptionsModal={setShowOptionsModal} />
 										</div>
 									</td>
 								</tr>

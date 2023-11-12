@@ -33,7 +33,7 @@ const UserDetails = () => {
 				<h2 className='error message'>{userError}</h2>
 			) : (
 				<>
-					<DetailsHeader id={user?.id} />
+					<DetailsHeader id={user?.customId} />
 					<DetailsProfile user={user} />
 					<DetailsInformation user={user} />
 				</>
