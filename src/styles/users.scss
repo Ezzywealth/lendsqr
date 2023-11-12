@@ -212,6 +212,19 @@ tbody {
 	border: 1px solid $input-border-color;
 }
 
+@keyframes show {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.show {
+	animation: show 0.5s ease-in-out forwards;
+}
+
 .modal-content {
 	background: #fff;
 	padding: 20px;

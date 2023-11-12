@@ -52,14 +52,14 @@ const Table = () => {
 											}}
 											cursor='pointer'
 										/>
-										<div className={`${showOptionsModal && activeRow === user.customId ? 'options-modal' : 'hide-modal'}`}>
+										<div className={`${showOptionsModal && activeRow === user.customId ? 'options-modal show' : 'hide-modal'}`}>
 											<OptionsModal id={user.customId} setShowOptionsModal={setShowOptionsModal} />
 										</div>
 									</td>
 								</tr>
 							);
 						})}
-						<tr className={`${showFilterModal ? 'filter-modal' : 'hide-modal'}`}>
+						<tr className={`${showFilterModal ? 'filter-modal show' : 'hide-modal'}`}>
 							<td colSpan={3}>
 								<Modal setShowFilterModal={setShowFilterModal} />
 							</td>

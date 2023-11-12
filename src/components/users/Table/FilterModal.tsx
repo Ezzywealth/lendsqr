@@ -22,7 +22,7 @@ const Modal = ({ setShowFilterModal }: Props) => {
 	};
 
 	return (
-		<div className='modal'>
+		<div className='modal show'>
 			<div className='modal-content'>
 				<label>
 					Organization

@@ -11,7 +11,7 @@ const OptionsModal = ({ id, setShowOptionsModal }: Props) => {
 	const { handleActivateUser, handleBlacklistUser } = TableHook();
 
 	return (
-		<div className='options_modal_container'>
+		<div className='options_modal_container show'>
 			<div className='close-icon-container'>
 				<span onClick={() => setShowOptionsModal(false)} className='close-icon'>
 					X
