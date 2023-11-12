@@ -15,7 +15,7 @@ const UserDetails = () => {
 	const params = useParams();
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-	const { user, userError } = useSelector((state: RootState) => state.usersData);
+	const { user, userError } = useSelector((state: RootState) => state.users);
 
 	useEffect(() => {
 		if (params?.id) {

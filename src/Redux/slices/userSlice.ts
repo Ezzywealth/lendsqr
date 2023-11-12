@@ -167,7 +167,7 @@ const counterSlice = createSlice({
 export const { buttonPagination, setItemsPerPage, filterUsers, blackListUser, activateUser } = counterSlice.actions;
 export default counterSlice.reducer;
 export type RootState = {
-	usersData: {
+	users: {
 		admin: UserProps | undefined;
 		counter: number;
 		users: UserProps[];

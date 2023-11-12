@@ -13,7 +13,7 @@ $text-black: rgba(#000, 0.8);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem 1.875rem;
+	padding: 1rem 0;
 	gap: 10px;
 	box-sizing: border-box;
 }
@@ -267,7 +267,7 @@ $text-black: rgba(#000, 0.8);
 .details_title {
 	color: $text-color;
 	font-size: 0.75rem;
-	font-weight: 500;
+	font-weight: 400;
 }
 
 .details_value {
