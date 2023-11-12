@@ -5,7 +5,7 @@ $primary-bg-color: #f5f6fa;
 $login-bg-color: #fff;
 $secondary-color: #545f7d;
 $input-border-color: rgba(#545f7d, 0.15);
-$font-family: sans-serif;
+$font-family: 'Work Sans', sans-serif;
 $active-bg-color: #e8fafa;
 
 .switch_container,
@@ -22,7 +22,7 @@ $active-bg-color: #e8fafa;
 	font-size: 1rem;
 	font-weight: 400;
 	color: $primary-color;
-	$font-family: sans-serif;
+	font-family: $font-family;
 }
 
 .sidebar_container {

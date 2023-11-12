@@ -27,7 +27,8 @@ body {
 }
 
 .aside_container {
-	width: 350px;
+	min-width: 283px;
+	width: 283px;
 	padding: 0;
 	margin: 0;
 	display: flex;

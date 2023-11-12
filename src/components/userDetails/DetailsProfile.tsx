@@ -27,7 +27,7 @@ const DetailsProfile = ({ user }: Props) => {
 				<div className='divider'></div>
 				<div className='acc_balance_container'>
 					<h3 className='acc_balance'>
-						<FaNairaSign className='naira_icon' />
+						<FaNairaSign size={16} className='naira_icon' />
 						<span className='amount'>{formatNumber(user?.acc_balance)}</span>
 					</h3>
 					<p className='acc_number_name'>

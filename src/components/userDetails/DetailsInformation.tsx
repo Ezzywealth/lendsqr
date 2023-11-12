@@ -1,7 +1,9 @@
-import React from 'react';
+import { FaNairaSign } from 'react-icons/fa6';
 import { UserProps } from '../../interfaces/typings';
+import { formatNumber } from '../../utils/userDetails';
+
 type Props = {
-	user: UserProps | undefined;
+	user: UserProps;
 };
 const DetailsInformation = ({ user }: Props) => {
 	return (
@@ -68,11 +70,15 @@ const DetailsInformation = ({ user }: Props) => {
 					</div>
 					<div className='details_container'>
 						<p className='details_title'>Monthly Income</p>
-						<h3 className='details_value'>{user?.monthly_income}</h3>
+						<h3 className='details_value'>
+							<FaNairaSign size={12} className='monthly_income' />
+							{formatNumber(user?.monthly_income.min)} - <FaNairaSign size={12} className='monthly_income ' />
+							{formatNumber(user?.monthly_income.max)}
+						</h3>
 					</div>
 					<div className='details_container'>
 						<p className='details_title'>Loan Repayment</p>
-						<h3 className='details_value'>{user?.loan_repayment}</h3>
+						<h3 className='details_value'>{user?.loan_repayment.toFixed(2)}</h3>
 					</div>
 				</div>
 			</article>

@@ -26,7 +26,7 @@ export type AuthProps = {
 export type AppState = {
 	admin: UserProps | undefined;
 	users: UserProps[];
-	user: UserProps | undefined;
+	user: UserProps | null | undefined;
 	filteredUsers: UserProps[];
 	counter: number;
 	usersLoading: boolean;
@@ -44,6 +44,11 @@ export type Guarantor = {
 	phone_number: string;
 	email: string;
 	relationship: string;
+};
+
+export type MonthlyIncomeProp = {
+	'min': number;
+	'max': number;
 };
 
 export type UserProps = {
@@ -70,7 +75,7 @@ export type UserProps = {
 	industry: string;
 	duration_of_employment: string;
 	office_email: string;
-	monthly_income: number;
+	monthly_income: MonthlyIncomeProp;
 	loan_repayment: number;
 	socials: Social[];
 	guarantor: Guarantor[];

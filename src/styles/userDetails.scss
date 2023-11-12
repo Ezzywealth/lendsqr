@@ -5,9 +5,14 @@ $primary-bg-color: #f5f6fa;
 $login-bg-color: #fff;
 $secondary-color: #545f7d;
 $input-border-color: rgba(#545f7d, 0.15);
-$font-family: sans-serif;
+$font-family: 'Work Sans', sans-serif;
 $active-bg-color: #e8fafa;
 $text-black: rgba(#000, 0.8);
+
+html,
+body {
+	font-family: $font-family;
+}
 
 .header_container {
 	display: flex;
@@ -163,7 +168,7 @@ $text-black: rgba(#000, 0.8);
 		font-size: 1.375rem;
 		margin: 0;
 		display: flex;
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.naira_icon {
@@ -209,12 +214,14 @@ $text-black: rgba(#000, 0.8);
 		font-size: 1rem;
 		border-bottom: 2px solid $button-color;
 		padding-bottom: 10px;
+		font-family: $font-family;
 	}
 
 	.inactive_tab {
 		color: $text-black;
 		font-weight: 500;
 		font-size: 1rem;
+		font-family: 'SF Compact Text';
 	}
 }
 
@@ -268,6 +275,7 @@ $text-black: rgba(#000, 0.8);
 	color: $text-color;
 	font-size: 0.75rem;
 	font-weight: 400;
+	font-family: $font-family;
 }
 
 .details_value {
@@ -275,6 +283,10 @@ $text-black: rgba(#000, 0.8);
 	font-size: 1rem;
 	font-weight: 500;
 	font-family: $font-family;
+}
+
+.monthly_income {
+	font-size: 0.5rem;
 }
 
 .details_container {
