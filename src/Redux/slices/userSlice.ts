@@ -2,7 +2,7 @@ import { usersData } from '../../utils/userDetails';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AppState, UserProps } from '../../interfaces/typings';
 import axios from 'axios';
-import { getAllUsers } from '../../utils/Database/indexDb';
+import { getAllUsers, searchUserById } from '../../utils/Database/indexDb';
 
 const base_url = process.env.REACT_APP_API;
 const initialState: AppState = {
@@ -39,10 +39,14 @@ export const fetchUsers = createAsyncThunk('fetchUsers', async () => {
 
 // a function to mock an api call using mocky.io and axios, and then return a single user details
 export const fetchUserById = createAsyncThunk('fetchUser', async (id: string) => {
-	const res = await axios.get(`${base_url}`);
-	console.log(res);
-	const user: UserProps | undefined = usersData.find((user) => user.customId === id);
-	return user;
+	let data: UserProps | undefined;
+	await searchUserById(id, (user) => {
+		console.log(user);
+		data = user;
+	});
+	await axios.get(`${base_url}`);
+	console.log(data);
+	return data;
 });
 
 const counterSlice = createSlice({

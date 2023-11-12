@@ -11,7 +11,7 @@ const openDatabase = (): IDBOpenDBRequest => {
 		const db: IDBDatabase = (event.target as IDBOpenDBRequest).result;
 
 		// Create an object store named 'Users'
-		const userStore: IDBObjectStore = db.createObjectStore('Users', { keyPath: 'id', autoIncrement: true });
+		const userStore: IDBObjectStore = db.createObjectStore('Users', { keyPath: 'customId', autoIncrement: true });
 
 		// Create indexes for searching by 'username', 'email', and 'status'
 		userStore.createIndex('customId', 'customId', { unique: true });
@@ -90,7 +90,7 @@ export const getAllUsers = async (callback: (users: UserProps[]) => void) => {
 };
 
 // Function to search for a user by ID
-export const searchUserById = (userId: number, callback: (user: UserProps | null) => void): void => {
+export const searchUserById = (customId: string, callback: (user: UserProps | undefined) => void): void => {
 	const request: IDBOpenDBRequest = openDatabase();
 
 	request.onsuccess = (event: Event): void => {
@@ -101,22 +101,25 @@ export const searchUserById = (userId: number, callback: (user: UserProps | null
 		const userStore: IDBObjectStore = transaction.objectStore('Users');
 
 		// Use the 'auto-incremented' key to look up the user by ID
-		const getRequest: IDBRequest<IDBValidKey | undefined> = userStore.get(userId);
+		const getRequest: IDBRequest<IDBValidKey | undefined> = userStore.get(customId);
 
 		getRequest.onsuccess = (): void => {
+			console.log(`User found with ID ${customId}`);
+			console.log(getRequest);
 			const user: UserProps | undefined = getRequest.result as UserProps | undefined;
-			callback(user || null);
+			console.log(user);
+			callback(user || undefined);
 		};
 
 		getRequest.onerror = (): void => {
-			console.error(`Error searching for user with ID ${userId}`);
-			callback(null);
+			console.error(`Error searching for user with ID ${customId}`);
+			callback(undefined);
 		};
 	};
 
 	request.onerror = (): void => {
 		console.error('Error opening database');
-		callback(null);
+		callback(undefined);
 	};
 };
 
