@@ -9,7 +9,6 @@ import { RootState } from '../../Redux/slices/authSlice';
 
 const Navbar = () => {
 	const { admin } = useSelector((state: RootState) => state.auth);
-	console.log(admin);
 	return (
 		<nav className='navbar'>
 			<div className='navbar-container'>

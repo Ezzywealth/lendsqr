@@ -29,7 +29,7 @@ export const fetchUsers = createAsyncThunk('fetchUsers', async () => {
 		data = users;
 	});
 	await axios.get(`${base_url}`);
-
+	console.log(data);
 	if (data.length !== 0) {
 		return data;
 	} else {

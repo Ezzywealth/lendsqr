@@ -363,11 +363,12 @@ tbody {
 	font-weight: 400;
 	background-color: transparent;
 	border: none;
+	font-family: $font-family;
 }
 
 .pagination-page.active {
 	color: $text-color;
-	font-weight: 800;
+	font-weight: 500;
 	background-color: transparent;
 	border: none;
 }

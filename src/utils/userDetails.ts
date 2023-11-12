@@ -27,7 +27,6 @@ export const cardDetails: CardProps[] = [
 	},
 ];
 export function formatNumber(number: number | null | undefined) {
-	console.log(number);
 	if (number == null || number == undefined) return;
 	const numberString = number?.toString();
 	return numberString?.replace(/\B(?=(\d{3})+(?!\d))/g, ',');

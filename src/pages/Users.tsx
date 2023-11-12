@@ -5,12 +5,9 @@ import DetailsCard from '../components/users/DetailsCard';
 import Table from '../components/users/Table/Table';
 import { fetchUsers } from '../Redux/slices/userSlice';
 import { useAppDispatch } from '../Redux/store';
-import { useSelector } from 'react-redux';
-import { RootState } from '../Redux/slices/authSlice';
 
 const Users = () => {
 	const dispatch = useAppDispatch();
-	const [called, setCalled] = React.useState(false);
 
 	useEffect(() => {
 		dispatch(fetchUsers());
