@@ -1,0 +1,48 @@
+$primary-color: #213f7d;
+$button-color: #39cdcc;
+$text-color: #545f7d;
+$primary-bg-color: #f5f6fa;
+$login-bg-color: #fff;
+$secondary-color: #545f7d;
+$input-border-color: rgba(#545f7d, 0.15);
+
+.layout {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: $primary-bg-color;
+}
+
+.main_section_container {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.aside_container {
+	min-width: 283px;
+	width: 283px;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: flex-start;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main_body {
+	padding: 3rem 2rem;
+	width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	width: 100%;
+}
