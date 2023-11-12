@@ -7,11 +7,12 @@ import OptionsModal from './OptionsModal';
 import { useSelector } from 'react-redux';
 import { UserProps } from '../../../interfaces/typings';
 import Pagination from '../../Shared/Pagination';
+import { RootState } from '../../../Redux/slices/userSlice';
 
 const Table = () => {
-	const { showFilterModal, setShowFilterModal, showOptionsModal, setShowOptionsModal, handlePageChange } = TableHook();
+	const { showFilterModal, setShowFilterModal, handleOptionsModal, handlePageChange } = TableHook();
 	const [activeRow, setActiveRow] = React.useState<null | string>(null);
-	const { filteredUsers, currentPage, totalPages, pageSize, noOfItems } = useSelector((state: any) => state.users);
+	const { filteredUsers, currentPage, totalPages, pageSize, noOfItems, showOptionsModal } = useSelector((state: RootState) => state.users);
 
 	return (
 		<div>
@@ -48,12 +49,12 @@ const Table = () => {
 											size={20}
 											onClick={() => {
 												setActiveRow(user.customId);
-												setShowOptionsModal(true);
+												handleOptionsModal(true);
 											}}
 											cursor='pointer'
 										/>
 										<div className={`${showOptionsModal && activeRow === user.customId ? 'options-modal show' : 'hide-modal'}`}>
-											<OptionsModal id={user.customId} setShowOptionsModal={setShowOptionsModal} />
+											<OptionsModal id={user.customId} />
 										</div>
 									</td>
 								</tr>

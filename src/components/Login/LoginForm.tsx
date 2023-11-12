@@ -3,6 +3,7 @@ import LoginHook from './LoginHook';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/slices/authSlice';
 import { LineWave } from 'react-loader-spinner';
+import LineWaveLoader from '../Shared/LineWaveLoader';
 
 const LoginForm = () => {
 	const { showPassword, setShowPassword, handleLogin, email, setEmail, password, setPassword } = LoginHook();
@@ -34,7 +35,7 @@ const LoginForm = () => {
 				<button type='submit' className='submit_btn'>
 					{loginLoading ? (
 						<div className='login_spinner'>
-							<LineWave height='50' width='50' color='#fefefe' ariaLabel='line-wave' wrapperStyle={{}} wrapperClass='' visible={true} firstLineColor='' middleLineColor='' lastLineColor='' />
+							<LineWaveLoader color='#fff' />
 						</div>
 					) : (
 						'Login'

@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsEye, BsPersonXFill, BsPersonCheckFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import TableHook from './Hook/TableHook';
+import TableHook, { optionsData } from './Hook/TableHook';
+import { OptionsDataProp, StatusProp } from '../../../interfaces/typings';
+import { LineWave, RotatingLines } from 'react-loader-spinner';
+import LineWaveLoader from '../../Shared/LineWaveLoader';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../Redux/slices/userSlice';
 
 type Props = {
 	id: string;
-	setShowOptionsModal: (showOptionsModal: boolean) => void;
 };
-const OptionsModal = ({ id, setShowOptionsModal }: Props) => {
-	const { handleActivateUser, handleBlacklistUser } = TableHook();
+
+const OptionsModal = ({ id }: Props) => {
+	const { handleUserStatus, handleOptionsModal } = TableHook();
+	const { updateLoading } = useSelector((state: RootState) => state.users);
+	const [optionsId, setOptionsId] = useState(0);
 
 	return (
 		<div className='options_modal_container show'>
 			<div className='close-icon-container'>
-				<span onClick={() => setShowOptionsModal(false)} className='close-icon'>
+				<span onClick={() => handleOptionsModal(false)} className='close-icon'>
 					X
 				</span>
 			</div>
@@ -23,23 +30,24 @@ const OptionsModal = ({ id, setShowOptionsModal }: Props) => {
 						<BsEye /> View Details
 					</button>
 				</Link>
-				<button
-					className='options_modal_btn'
-					onClick={() => {
-						handleBlacklistUser(id);
-						setShowOptionsModal(false);
-					}}>
-					<BsPersonXFill /> Blacklist user
-				</button>
-				<button
-					className='options_modal_btn'
-					onClick={() => {
-						handleActivateUser(id);
-						setShowOptionsModal(false);
-					}}>
-					<BsPersonCheckFill />
-					Activate User
-				</button>
+				{optionsData.map((option) => {
+					return (
+						<button
+							key={option.id}
+							className='options_modal_btn'
+							onClick={() => {
+								setOptionsId(option.id);
+								handleUserStatus(id, option.status);
+							}}>
+							<span>{option.icon}</span> <span> {option.title}</span>
+							{updateLoading && optionsId === option.id && (
+								<span>
+									<RotatingLines strokeColor='#213f7d' strokeWidth='5' animationDuration='0.75' width='16' visible={true} />
+								</span>
+							)}
+						</button>
+					);
+				})}
 			</div>
 		</div>
 	);

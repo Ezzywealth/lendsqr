@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../../Redux/store';
-import { activateUser, blackListUser, buttonPagination, filterUsers } from '../../../../Redux/slices/userSlice';
+import { buttonPagination, filterUsers, setShowOptionsModal, updateUserStatus } from '../../../../Redux/slices/userSlice';
+import { OptionsDataProp, StatusProp } from '../../../../interfaces/typings';
+import { BsEye, BsPersonXFill, BsPersonCheckFill } from 'react-icons/bs';
 
+export const optionsData: OptionsDataProp[] = [
+	{
+		id: 1,
+		title: 'Blacklist User',
+		icon: <BsPersonXFill />,
+		status: 'Blacklisted',
+	},
+	{
+		id: 2,
+		title: 'Activate User',
+		icon: <BsPersonCheckFill />,
+		status: 'Active',
+	},
+];
 const TableHook = () => {
 	const [showFilterModal, setShowFilterModal] = React.useState(false);
 	const [isOpen, setIsOpen] = React.useState(false);
@@ -11,7 +27,12 @@ const TableHook = () => {
 	const [date, setDate] = useState('');
 	const [email, setEmail] = useState('');
 	const [status, setStatus] = useState('');
-	const [showOptionsModal, setShowOptionsModal] = useState(false);
+	// const [showOptionsModal, setShowOptionsModal] = useState(false);
+
+	const handleOptionsModal = (value: boolean) => {
+		dispatch(setShowOptionsModal(value));
+	};
+
 	const dispatch = useAppDispatch();
 	const onClose = () => {
 		console.log('onClose');
@@ -28,13 +49,10 @@ const TableHook = () => {
 		dispatch(buttonPagination(page));
 	};
 
-	const handleActivateUser = (id: string | undefined) => {
-		dispatch(activateUser({ id }));
+	const handleUserStatus = (id: string, status: StatusProp) => {
+		dispatch(updateUserStatus({ id, status }));
 	};
 
-	const handleBlacklistUser = (id: string  | undefined) => {
-		dispatch(blackListUser({ id }));
-	};
 	return {
 		showFilterModal,
 		setShowFilterModal,
@@ -54,11 +72,9 @@ const TableHook = () => {
 		setEmail,
 		status,
 		setStatus,
-		showOptionsModal,
-		setShowOptionsModal,
+		handleOptionsModal,
 		handlePageChange,
-		handleActivateUser,
-		handleBlacklistUser,
+		handleUserStatus,
 	};
 };
 

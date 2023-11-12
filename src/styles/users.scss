@@ -315,12 +315,20 @@ tbody {
 .options_modal_btn {
 	display: flex;
 	gap: 10px;
+	height: 20px;
 	background: none;
 	border: none;
 	color: $text-color;
 	font-size: 0.875rem;
 	font-weight: 500;
 	cursor: pointer;
+	width: 100%;
+	align-items: center;
+
+	span {
+		height: 0.8rem;
+		box-sizing: border-box;
+	}
 }
 
 .options-modal {
@@ -330,6 +338,7 @@ tbody {
 	z-index: 100;
 	box-shadow: $box-shadow;
 	width: 170px;
+	max-width: 180px;
 }
 
 /************************ Pagination styles ******************/

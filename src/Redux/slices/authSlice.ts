@@ -16,12 +16,7 @@ const initialState: AuthProps = {
 export const loginService = createAsyncThunk<AdminProps, LoginProps>('loginService', async (data) => {
 	console.log(data);
 	const res = await axios.get(`${base_url}`);
-	if (res.status === 200) {
-		console.log('yes');
-	}
-	const result = await addUsers();
-	console.log(result);
-	console.log(res);
+	await addUsers();
 	return admin;
 });
 

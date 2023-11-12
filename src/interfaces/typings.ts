@@ -5,6 +5,20 @@ export type CardProps = {
 	id: number;
 };
 
+export type OptionsDataProp = {
+	id: number;
+	title: string;
+	icon: JSX.Element;
+	status: StatusProp;
+};
+
+export type StatusProp = 'Active' | 'Inactive' | 'Pending' | 'Blacklisted';
+
+export type UpdateStatusProps = {
+	id: string;
+	status: StatusProp;
+};
+
 export type LoginProps = {
 	email: string;
 	password: string;
@@ -24,19 +38,20 @@ export type AuthProps = {
 };
 
 export type AppState = {
-	admin: UserProps | undefined;
 	users: UserProps[];
 	user: UserProps | null | undefined;
 	filteredUsers: UserProps[];
-	counter: number;
 	usersLoading: boolean;
 	usersError: string;
 	userLoading: boolean;
 	userError: string;
+	updateLoading: boolean;
+	updateError: string;
 	currentPage: number;
 	totalPages: number;
 	pageSize: number;
 	noOfItems: number;
+	showOptionsModal: boolean;
 };
 
 export type Guarantor = {

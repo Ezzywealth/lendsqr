@@ -1,4 +1,4 @@
-import { UserProps } from '../../interfaces/typings';
+import { StatusProp, UserProps } from '../../interfaces/typings';
 import { usersData } from '../userDetails';
 
 // Function to open or create a database
@@ -27,14 +27,10 @@ export const addUsers = () => {
 	const request: IDBOpenDBRequest = openDatabase();
 
 	request.onsuccess = (event: Event) => {
-		console.log('db was opened');
-		// return;
 		const db: IDBDatabase = 'result' in request ? request.result : (event.target as IDBOpenDBRequest).result;
 		// Create a transaction and get the Users object store
 		const transaction: IDBTransaction = db.transaction(['Users'], 'readwrite');
 		const userStore: IDBObjectStore = transaction.objectStore('Users');
-		console.log(userStore);
-		console.log(users);
 		// Add each user to the Users object store
 		users.forEach((user: UserProps) => {
 			// Use the 'add' method to let IndexedDB generate a key
@@ -78,13 +74,11 @@ export const getAllUsers = async (callback: (users: UserProps[]) => void) => {
 		};
 
 		getAllRequest.onerror = (error: Event) => {
-			console.error('Error retrieving users:', error);
 			callback([]);
 		};
 	};
 
 	openRequest.onerror = (error: Event) => {
-		console.error('Error opening database:', error);
 		callback([]);
 	};
 };
@@ -104,24 +98,84 @@ export const searchUserById = (customId: string, callback: (user: UserProps | un
 		const getRequest: IDBRequest<IDBValidKey | undefined> = userStore.get(customId);
 
 		getRequest.onsuccess = (): void => {
-			console.log(`User found with ID ${customId}`);
-			console.log(getRequest);
 			const user: UserProps | undefined = getRequest.result as UserProps | undefined;
-			console.log(user);
 			callback(user || undefined);
 		};
 
 		getRequest.onerror = (): void => {
-			console.error(`Error searching for user with ID ${customId}`);
 			callback(undefined);
 		};
 	};
 
 	request.onerror = (): void => {
-		console.error('Error opening database');
 		callback(undefined);
 	};
 };
 
-// Example usage of addUsers and searchUserById
-// addUsers();
+export const updateUserStatusById = (customId: string, newStatus: StatusProp, callback: (success: boolean) => void): void => {
+	const request: IDBOpenDBRequest = openDatabase();
+
+	request.onsuccess = (event: Event): void => {
+		const db: IDBDatabase = 'result' in request ? request.result : (event.target as IDBOpenDBRequest).result;
+
+		// Create a transaction and get the Users object store
+		const transaction: IDBTransaction = db.transaction(['Users'], 'readwrite');
+		const userStore: IDBObjectStore = transaction.objectStore('Users');
+
+		// Use the 'customId' index to look up the user by ID
+		const idIndex: IDBIndex = userStore.index('customId');
+		const getRequest: IDBRequest<IDBValidKey | undefined> = idIndex.getKey(customId);
+
+		getRequest.onsuccess = (): void => {
+			const userId: IDBValidKey | undefined = getRequest.result;
+
+			if (userId !== undefined) {
+				// Fetch the existing user object
+				const getRequestData: IDBRequest<UserProps | undefined> = userStore.get(userId);
+
+				getRequestData.onsuccess = (): void => {
+					const userData: UserProps | undefined = getRequestData.result;
+
+					if (userData) {
+						// Update the status property
+						userData.status = newStatus;
+
+						// Use the userId to update the user with the modified data
+						const updateRequest: IDBRequest<IDBValidKey> = userStore.put(userData);
+
+						updateRequest.onsuccess = (): void => {
+							console.log(`User status updated successfully for ID ${customId}`);
+							callback(true);
+						};
+
+						updateRequest.onerror = (): void => {
+							console.error(`Error updating user status for ID ${customId}`);
+							callback(false);
+						};
+					} else {
+						console.error(`User data not found for ID ${customId}`);
+						callback(false);
+					}
+				};
+
+				getRequestData.onerror = (): void => {
+					console.error(`Error fetching user data for ID ${customId}`);
+					callback(false);
+				};
+			} else {
+				console.error(`User with ID ${customId} not found`);
+				callback(false);
+			}
+		};
+
+		getRequest.onerror = (): void => {
+			console.error(`Error searching for user with ID ${customId}`);
+			callback(false);
+		};
+	};
+
+	request.onerror = (): void => {
+		console.error('Error opening database');
+		callback(false);
+	};
+};

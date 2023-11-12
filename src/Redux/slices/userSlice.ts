@@ -1,13 +1,11 @@
 import { usersData } from '../../utils/userDetails';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { AppState, UserProps } from '../../interfaces/typings';
+import { AppState, StatusProp, UpdateStatusProps, UserProps } from '../../interfaces/typings';
 import axios from 'axios';
-import { getAllUsers, searchUserById } from '../../utils/Database/indexDb';
-
+import { getAllUsers, searchUserById, updateUserStatusById } from '../../utils/Database/indexDb';
 const base_url = process.env.REACT_APP_API;
+
 const initialState: AppState = {
-	admin: undefined,
-	counter: 0,
 	users: [],
 	user: null,
 	filteredUsers: [],
@@ -15,11 +13,26 @@ const initialState: AppState = {
 	usersError: '',
 	userLoading: false,
 	userError: '',
+	updateLoading: false,
+	updateError: '',
 	currentPage: 1,
+	showOptionsModal: false,
 	totalPages: 0,
 	pageSize: 0,
 	noOfItems: 0,
 };
+
+// function to update user status by id
+export const updateUserStatus = createAsyncThunk('updateUserStatus', async ({ id, status }: UpdateStatusProps) => {
+	let value: boolean = false;
+	await updateUserStatusById(id, status, (response) => {
+		console.log(response);
+		response ? (value = true) : (value = false);
+	});
+	// mock an api call using mocky.io and axios
+	await axios.get(`${base_url}`);
+	return value;
+});
 
 // function to mock an api call using mocky.io and axios, and then return the users data
 export const fetchUsers = createAsyncThunk('fetchUsers', async () => {
@@ -28,8 +41,9 @@ export const fetchUsers = createAsyncThunk('fetchUsers', async () => {
 	await getAllUsers((users) => {
 		data = users;
 	});
+
+	// mock an api call using mocky.io and axios
 	await axios.get(`${base_url}`);
-	console.log(data);
 	if (data.length !== 0) {
 		return data;
 	} else {
@@ -39,17 +53,22 @@ export const fetchUsers = createAsyncThunk('fetchUsers', async () => {
 
 // a function to mock an api call using mocky.io and axios, and then return a single user details
 export const fetchUserById = createAsyncThunk('fetchUser', async (id: string) => {
+	// declare a variable to hold the user details
 	let data: UserProps | undefined;
+
+	// fetch the user from indexedDB and set the data to the user object
 	await searchUserById(id, (user) => {
-		console.log(user);
 		data = user;
 	});
+
+	// mock an api call using mocky.io and axios
 	await axios.get(`${base_url}`);
-	console.log(data);
+
+	// return the user details
 	return data;
 });
 
-const counterSlice = createSlice({
+const usersSlice = createSlice({
 	name: 'users',
 	initialState,
 	reducers: {
@@ -70,57 +89,9 @@ const counterSlice = createSlice({
 			// slice the users array to get the users for the current page
 			state.totalPages = Math.ceil(state.noOfItems / state.pageSize);
 		},
-		blackListUser: (state, action) => {
-			// get the id of the user to be blacklisted
-			const { id } = action.payload;
-
-			// map through the users array and change the status of the user to blacklisted
-			state.users = state.users.map((item) => {
-				if (item.customId === id) {
-					return {
-						...item,
-						status: 'Blacklisted',
-					};
-				}
-				return item;
-			});
-
-			// map through the filteredUsers array and change the status of the user to blacklisted
-			state.filteredUsers = state.filteredUsers.map((item) => {
-				if (item.customId === id) {
-					return {
-						...item,
-						status: 'Blacklisted',
-					};
-				}
-				return item;
-			});
-		},
-		activateUser: (state, action) => {
-			// get the id of the user to be activated
-			const { id } = action.payload;
-
-			// map through the users array and change the status of the user to active
-			state.users = state.users.map((item) => {
-				if (item.customId === id) {
-					return {
-						...item,
-						status: 'Active',
-					};
-				}
-				return item;
-			});
-
-			// map through the filteredUsers array and change the status of the user to active
-			state.filteredUsers = state.filteredUsers.map((item) => {
-				if (item.customId === id) {
-					return {
-						...item,
-						status: 'Active',
-					};
-				}
-				return item;
-			});
+		setShowOptionsModal: (state, action) => {
+			// toggle the showFilterModal state
+			state.showOptionsModal = action.payload;
 		},
 		filterUsers: (state, action) => {
 			// get the filter parameters from the payload
@@ -193,7 +164,6 @@ const counterSlice = createSlice({
 			state.usersError = '';
 		});
 		builder.addCase(fetchUserById.fulfilled, (state, action) => {
-			console.log(action.payload);
 			state.user = action.payload;
 			state.userLoading = false;
 			state.userError = '';
@@ -208,11 +178,49 @@ const counterSlice = createSlice({
 			state.user = null;
 			state.userError = '';
 		});
+		builder.addCase(updateUserStatus.pending, (state) => {
+			state.updateLoading = true;
+			state.updateError = '';
+		});
+		builder.addCase(updateUserStatus.fulfilled, (state, action) => {
+			state.updateLoading = false;
+			state.updateError = '';
+
+			// get the id of the user and the new status from the payload
+			const { id, status } = action.meta.arg;
+
+			// map through the users array and change the status of the user to active
+			state.users = state.users.map((item) => {
+				if (item.customId === id) {
+					return {
+						...item,
+						status: status,
+					};
+				}
+				return item;
+			});
+
+			// map through the filteredUsers array and change the status of the user to active
+			state.filteredUsers = state.filteredUsers.map((item) => {
+				if (item.customId === id) {
+					return {
+						...item,
+						status: status,
+					};
+				}
+				return item;
+			});
+			state.showOptionsModal = false;
+		});
+		builder.addCase(updateUserStatus.rejected, (state) => {
+			state.updateLoading = false;
+			state.updateError = 'Status update failed';
+		});
 	},
 });
 
-export const { buttonPagination, setItemsPerPage, filterUsers, blackListUser, activateUser } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { buttonPagination, setItemsPerPage, filterUsers, setShowOptionsModal } = usersSlice.actions;
+export default usersSlice.reducer;
 export type RootState = {
 	users: {
 		admin: UserProps | undefined;
@@ -222,11 +230,14 @@ export type RootState = {
 		filteredUsers: UserProps[];
 		usersLoading: boolean;
 		usersError: string;
+		updateLoading: false;
+		updateError: '';
 		userLoading: boolean;
 		userError: string;
 		currentPage: number;
 		totalPages: number;
 		pageSize: number;
 		noOfItems: number;
+		showOptionsModal: boolean;
 	};
 };
