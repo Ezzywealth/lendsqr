@@ -52,6 +52,7 @@ export type AppState = {
 	pageSize: number;
 	noOfItems: number;
 	showOptionsModal: boolean;
+	sidebarOpen: boolean;
 };
 
 export type Guarantor = {

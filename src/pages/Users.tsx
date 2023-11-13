@@ -7,6 +7,7 @@ import { RootState, fetchUsers } from '../Redux/slices/userSlice';
 import { useAppDispatch } from '../Redux/store';
 import { useSelector } from 'react-redux';
 import ErrorComponent from '../components/ErrorComponent';
+import SidebarToggle from '../components/Shared/SidebarToggle';
 
 const Users = () => {
 	const dispatch = useAppDispatch();
@@ -28,7 +29,10 @@ const Users = () => {
 				<ErrorComponent errorMessage={usersError} reload={reload} />
 			) : (
 				<>
-					<h2 className='users_title'>users</h2>
+					<section className='back_arrow_toggle_icon'>
+						<h2 className='users_title'>users</h2>
+						<SidebarToggle />
+					</section>
 					<DetailsCard />
 					<Table />
 				</>

@@ -11,6 +11,7 @@ import { useAppDispatch } from '../Redux/store';
 import { RootState, fetchUserById } from '../Redux/slices/userSlice';
 import { useSelector } from 'react-redux';
 import ErrorComponent from '../components/ErrorComponent';
+import SidebarToggle from '../components/Shared/SidebarToggle';
 
 const UserDetails = () => {
 	const params = useParams();
@@ -30,11 +31,12 @@ const UserDetails = () => {
 
 	return (
 		<Layout>
-			<section>
+			<section className='back_arrow_toggle_icon'>
 				<span className='back_arrow' onClick={() => navigate('/users')}>
 					<HiOutlineArrowNarrowLeft cursor='pointer' size={30} />
 					Back to Users
 				</span>
+				<SidebarToggle />
 			</section>
 			{!user && userError ? (
 				<ErrorComponent errorMessage={userError} reload={reload} />

@@ -20,6 +20,7 @@ const initialState: AppState = {
 	totalPages: 0,
 	pageSize: 0,
 	noOfItems: 0,
+	sidebarOpen: false,
 };
 
 // function to update user status by id
@@ -92,6 +93,9 @@ const usersSlice = createSlice({
 		setShowOptionsModal: (state, action) => {
 			// toggle the showFilterModal state
 			state.showOptionsModal = action.payload;
+		},
+		toggleSidebar: (state) => {
+			state.sidebarOpen = !state.sidebarOpen;
 		},
 		filterUsers: (state, action) => {
 			// get the filter parameters from the payload
@@ -219,7 +223,7 @@ const usersSlice = createSlice({
 	},
 });
 
-export const { buttonPagination, setItemsPerPage, filterUsers, setShowOptionsModal } = usersSlice.actions;
+export const { buttonPagination, setItemsPerPage, filterUsers, setShowOptionsModal, toggleSidebar } = usersSlice.actions;
 export default usersSlice.reducer;
 export type RootState = {
 	users: {
@@ -239,5 +243,6 @@ export type RootState = {
 		pageSize: number;
 		noOfItems: number;
 		showOptionsModal: boolean;
+		sidebarOpen: boolean;
 	};
 };

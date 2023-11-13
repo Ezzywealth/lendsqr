@@ -1,3 +1,15 @@
+@import './styles/breakpoints';
+
+$primary_color: #213f7d;
+$button_color: #39cdcc;
+$text_color: #545f7d;
+$primary_bg_color: #f5f6fa;
+$login_bg_color: #fff;
+$secondary_color: #545f7d;
+$input_border_color: rgba(#545f7d, 0.15);
+$font_family: 'Work Sans', sans-serif;
+$active_bg_color: #e8fafa;
+$text_black: rgba(#000, 0.8);
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap');
 
 @font-face {
@@ -87,4 +99,23 @@ html,
 		justify-content: center;
 		margin: 0;
 	}
+}
+
+.sidebar_toggle {
+	& {
+		color: $primary_color;
+		font-size: 1.3rem;
+	}
+
+	@include xs {
+		display: flex;
+	}
+	@include lg {
+		display: none;
+	}
+}
+
+.back_arrow_toggle_icon {
+	display: flex;
+	justify-content: space-between;
 }
