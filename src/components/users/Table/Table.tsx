@@ -25,7 +25,7 @@ const Table = () => {
 									<th key={index}>
 										<div className='filter_container'>
 											{header}
-											<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter-icon' onClick={() => setShowFilterModal(true)} data-testId={`filter-${index}`} />
+											<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter-icon' onClick={() => setShowFilterModal(true)} data-testid={`filter-${index}`} />
 										</div>
 									</th>
 								);
@@ -35,7 +35,7 @@ const Table = () => {
 					<tbody className='table-body'>
 						{filteredUsers?.map((user: UserProps, index) => {
 							return (
-								<tr key={user.customId} className='table-data-row' data-testId={`row-${index + 1}`}>
+								<tr key={user.customId} className='table-data-row' data-testid={`row-${index + 1}`}>
 									<td>{user.organization}</td>
 									<td>{user.username}</td>
 									<td>{user.email}</td>

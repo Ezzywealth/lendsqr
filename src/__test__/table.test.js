@@ -1,9 +1,8 @@
 import React from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store'; // You may need to install this package
-import { usersData } from '../utils/userDetails';
 import Table from '../components/users/Table/Table';
 
 const mockStore = configureStore();

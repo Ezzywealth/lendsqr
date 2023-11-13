@@ -17,7 +17,7 @@ const Pagination = ({ currentPage, totalPages, itemsPerPage, totalItems, onPageC
 					}}
 					className='select-field'>
 					{Array.from({ length: totalPages }, (_, index) => (
-						<option key={index} value={index + 1} data-testid={`option-${index + 1}`}>
+						<option key={index + 1} value={index + 1} data-testid={`option-${index + 1}`}>
 							{index + 1}
 						</option>
 					))}
