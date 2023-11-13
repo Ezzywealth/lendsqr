@@ -16,8 +16,8 @@ const Table = () => {
 
 	return (
 		<div>
-			<div className='table-responsive'>
-				<table className='custom-table'>
+			<div className='table_responsive'>
+				<table className='custom_table'>
 					<thead>
 						<tr>
 							{tableHeaders.map((header, index) => {
@@ -25,24 +25,24 @@ const Table = () => {
 									<th key={index}>
 										<div className='filter_container'>
 											{header}
-											<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter-icon' onClick={() => setShowFilterModal(true)} data-testid={`filter-${index}`} />
+											<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter_icon' onClick={() => setShowFilterModal(true)} data-testid={`filter-${index}`} />
 										</div>
 									</th>
 								);
 							})}
 						</tr>
 					</thead>
-					<tbody className='table-body'>
+					<tbody className='table_body'>
 						{filteredUsers?.map((user: UserProps, index) => {
 							return (
-								<tr key={user.customId} className='table-data-row' data-testid={`row-${index + 1}`}>
+								<tr key={user.customId} className='table_data_row' data-testid={`row-${index + 1}`}>
 									<td>{user.organization}</td>
 									<td>{user.username}</td>
 									<td>{user.email}</td>
 									<td>{user.phone_number}</td>
 									<td>{user.date_joined}</td>
 									<td>
-										<span className={`${user.status.toLowerCase() === 'active' ? 'active-bg' : user.status.toLowerCase() === 'inactive' ? 'inactive-bg' : user.status.toLowerCase() === 'blacklisted' ? 'blacklisted-bg' : user.status.toLowerCase() === 'pending' ? 'pending-bg' : ''}`}>{user.status}</span>
+										<span className={`${user.status.toLowerCase() === 'active' ? 'active_bg' : user.status.toLowerCase() === 'inactive' ? 'inactive_bg' : user.status.toLowerCase() === 'blacklisted' ? 'blacklisted_bg' : user.status.toLowerCase() === 'pending' ? 'pending-bg' : ''}`}>{user.status}</span>
 									</td>
 									<td>
 										<BsThreeDotsVertical
@@ -54,14 +54,14 @@ const Table = () => {
 											cursor='pointer'
 											data-testid={`three-dots-${index + 1}`}
 										/>
-										<div className={`${showOptionsModal && activeRow === user.customId ? 'options-modal show' : 'hide-modal'}`}>
+										<div className={`${showOptionsModal && activeRow === user.customId ? 'options_modal show' : 'hide_modal'}`}>
 											<OptionsModal id={user.customId} />
 										</div>
 									</td>
 								</tr>
 							);
 						})}
-						<tr className={`${showFilterModal ? 'filter-modal show' : 'hide-modal'}`}>
+						<tr className={`${showFilterModal ? 'filter_modal show' : 'hide_modal'}`}>
 							<td colSpan={3}>
 								<Modal setShowFilterModal={setShowFilterModal} />
 							</td>

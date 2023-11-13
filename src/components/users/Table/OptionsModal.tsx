@@ -17,8 +17,8 @@ const OptionsModal = ({ id }: Props) => {
 
 	return (
 		<div className='options_modal_container show'>
-			<div className='close-icon-container'>
-				<span onClick={() => handleOptionsModal(false)} className='close-icon'>
+			<div className='close_icon_container'>
+				<span onClick={() => handleOptionsModal(false)} className='close_icon'>
 					X
 				</span>
 			</div>

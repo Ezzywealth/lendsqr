@@ -25,7 +25,7 @@ const StarRating = ({ rating = 0 }: Props) => {
 		}
 		return stars.filter((item) => item !== undefined);
 	};
-	return <div className='star-rating'>{renderStars()}</div>;
+	return <div className='star_rating'>{renderStars()}</div>;
 };
 
 export default StarRating;

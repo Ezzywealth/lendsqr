@@ -10,14 +10,14 @@ const LoginForm = () => {
 	const { loginLoading } = useSelector((state: RootState) => state.auth);
 
 	return (
-		<form className='login-form' onSubmit={handleLogin}>
+		<form className='login_form' onSubmit={handleLogin}>
 			<section>
 				<h2 className='form_title'>Welcome</h2>
 				<p className='form_subtitle'>Enter details to login</p>
 				<input type='text' placeholder='Email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
-				<div className='password-container'>
+				<div className='password_container'>
 					<input type={showPassword ? 'text' : 'password'} placeholder='Password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
-					<button type='button' className='show-hide'>
+					<button type='button' className='show_hide'>
 						{showPassword ? (
 							<p className='' onClick={() => setShowPassword(!showPassword)}>
 								hide
@@ -29,8 +29,8 @@ const LoginForm = () => {
 						)}
 					</button>
 				</div>
-				<div className='forgot-password'>
-					<a href=''>Forgot Password?</a>
+				<div className='forgot_password'>
+					<a href='#'>Forgot Password?</a>
 				</div>
 				<button type='submit' className='submit_btn'>
 					{loginLoading ? (

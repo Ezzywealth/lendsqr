@@ -11,11 +11,11 @@ const Navbar = () => {
 	const { admin } = useSelector((state: RootState) => state.auth);
 	return (
 		<nav className='navbar'>
-			<div className='navbar-container'>
+			<div className='navbar_container'>
 				<Logo />
 				<form className='nav_search_form'>
 					<input type='text' placeholder='Search for anything' className='search_input' />
-					<button type='submit' className='search-btn'>
+					<button type='submit' className='search_btn'>
 						<AiOutlineSearch size={30} className='icon' />
 					</button>
 				</form>

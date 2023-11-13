@@ -18,7 +18,7 @@ const PaginationBtns = ({ currentPage, totalPages, itemsPerPage, totalItems, onP
 
 		for (let i = startPage; i <= endPage; i++) {
 			pageButtons.push(
-				<button key={i} className={`pagination-page ${currentPage === i ? 'active' : ''}`} onClick={() => handlePageChange(i)}>
+				<button key={i} className={`pagination_page ${currentPage === i ? 'active' : ''}`} onClick={() => handlePageChange(i)}>
 					{i}
 				</button>
 			);
@@ -27,7 +27,7 @@ const PaginationBtns = ({ currentPage, totalPages, itemsPerPage, totalItems, onP
 		// Show dots if there are more than 5 pages
 		if (totalPages > 5 && endPage < totalPages - 1) {
 			pageButtons.push(
-				<span key='dots' className='pagination-dots'>
+				<span key='dots' className='pagination_dots'>
 					...
 				</span>
 			);
@@ -36,7 +36,7 @@ const PaginationBtns = ({ currentPage, totalPages, itemsPerPage, totalItems, onP
 		// Always show the last three pages
 		for (let i = lastTwoPages; i <= totalPages; i++) {
 			pageButtons.push(
-				<button key={i} className={`pagination-page ${currentPage === i ? 'active' : ''}`} onClick={() => handlePageChange(i)}>
+				<button key={i} className={`pagination_page ${currentPage === i ? 'active' : ''}`} onClick={() => handlePageChange(i)}>
 					{i}
 				</button>
 			);

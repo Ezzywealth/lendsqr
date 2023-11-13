@@ -22,7 +22,7 @@ const Sidebar = () => {
 						<h3 className='section_title'>{key}</h3>
 						<ul className='side_links_container'>
 							{value.map((item) => (
-								<Link to={item.name === 'users' ? `${item.name}` : ''} key={item.id}>
+								<Link to={item.name === 'users' ? `/${item.name}` : ''} key={item.id}>
 									<li className={`side_links ${activeLink === item.name ? 'active_link' : 'inactive_link'}`} onClick={() => setActiveLink(item.name)}>
 										<img className='side_links_icon' src={item.icon} alt={item.name} />
 										<h4 className='side_links_name'>{item.name}</h4>

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import '../../styles/layout.scss';
@@ -14,6 +14,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
 	const { usersLoading, userLoading } = useSelector((state: any) => state.users);
+	const [loading, setLoading] = useState(true);
 	const dispatch = useAppDispatch();
 	const admin = localStorage.getItem('admin') && JSON.parse(obfuscateToken(false, localStorage.getItem('admin') as string));
 
@@ -21,9 +22,10 @@ const Layout = ({ children }: LayoutProps) => {
 		if (admin) {
 			dispatch(setAdmin(admin));
 		}
+		setLoading(false);
 	}, [dispatch, admin]);
 
-	if (usersLoading || userLoading) {
+	if (usersLoading || userLoading || loading) {
 		return <LoadingSpinner />;
 	}
 

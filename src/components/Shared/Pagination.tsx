@@ -7,15 +7,15 @@ const Pagination = ({ currentPage, totalPages, itemsPerPage, totalItems, onPageC
 	const { renderPageButtons, handlePageChange } = PaginationBtns({ currentPage, totalPages, itemsPerPage, totalItems, onPageChange });
 
 	return (
-		<div className='pagination-container'>
-			<div className='pagination-info'>
+		<div className='pagination_container'>
+			<div className='pagination_info'>
 				<p>Showing</p>
 				<select
 					value={currentPage}
 					onChange={(e) => {
 						onPageChange(+e.target.value);
 					}}
-					className='select-field'>
+					className='select_field'>
 					{Array.from({ length: totalPages }, (_, index) => (
 						<option key={index + 1} value={index + 1} data-testid={`option-${index + 1}`}>
 							{index + 1}
@@ -25,12 +25,12 @@ const Pagination = ({ currentPage, totalPages, itemsPerPage, totalItems, onPageC
 				out of {totalPages}
 			</div>
 			{totalPages > 1 && (
-				<div className='pagination-pages'>
-					<span className='pagination-arrow'>
+				<div className='pagination_pages'>
+					<span className='pagination_arrow'>
 						<MdKeyboardArrowLeft size={25} onClick={() => handlePageChange(currentPage - 1)} />
 					</span>
 					{renderPageButtons()}
-					<span className='pagination-arrow'>
+					<span className='pagination_arrow'>
 						<MdKeyboardArrowRight size={25} onClick={() => handlePageChange(currentPage + 1)} />
 					</span>
 				</div>

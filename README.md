@@ -2,7 +2,7 @@
 
 <div>
 
-  <h1><b>Carbooky</b></h1><br/><br/>
+  <h1><b>Lendsqr</b></h1><br/><br/>
 
 </div>
 
@@ -28,18 +28,7 @@
 
 # Carbooky <a name="about-project"></a>
 
-- Click this [link](https://github.com/Ezzywealth/cab_bookings_api) to access the backend app that was built using rails and postgres.
-
-## Kanban Board <a name="kanban-board"></a>
-
-- Click this [link](https://github.com/users/Ezzywealth/projects/9) to access the Kanban Board.
-- Click this [link](https://user-images.githubusercontent.com/108669691/244860298-7ac472f8-bc55-42ed-927b-2ab7decf4ca0.png) to view the initial screenshot of the project Kanban Board.
-
-### Team Members
-
-- At the culmination of this project, only three team members remained, and detailed information about them can be found in the [👥 Authors](#authors)
-
-- Click this [link](https://github.com/Ezzywealth/cab_bookings_frontend/issues/1) to view the description of each team members role in the project.
+- Click this [link](https://github.com/lendsqr) to access the backend app that was built using rails and postgres.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -50,15 +39,17 @@
   <li><a href="https://reactjs.org/">ReactJS</a></li>
   <li><a href="https://reactrouter.com/en/main">React Router</a></li>
   <li><a href="https://redux.js.org/redux-toolkit/overview">Redux Toolkit</a></li>
+  <li><a href="https://redux.js.org/redux-toolkit/overview">SASS</a></li>
+  <li><a href="https://redux.js.org/redux-toolkit/overview">jest</a></li>
 </ul>
 
 ### Key Features <a name="key-features"></a>
 
-- **User Authentication**
-- **Navigation Panel**
-- **Cab Index page**
-- **Cab details page**
-- **Add cab page**
+- **Admin login**
+- **Save users to indexedDb**
+- **Retrieved users data from indexedDb**
+- **Retrieved single user details from indexedDb**
+- **Update user status saved**
 - **Delete cab page**
 - **Reservation page**
 - **Add Reservation Page**
@@ -69,7 +60,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Clike Here!!!](https://carbooky.vercel.app/)
+- [Clike Here!!!](https://ezekiel-udiomuno-lendsqr-fe-test.vercel.app//)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
