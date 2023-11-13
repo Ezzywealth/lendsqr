@@ -40,7 +40,7 @@ const Sidebar = () => {
 					</section>
 				))}
 				<div className='logout_container' onClick={handleLogout}>
-					<MdLogout />
+					<img className='side_links_icon' src='/assets/icons/logout.png' alt='logout button' />
 					<h3 className='logout_text'>Logout</h3>
 					{logoutLoading && <RotatingSpinner color='#213f7d' />}
 				</div>

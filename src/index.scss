@@ -118,6 +118,7 @@ html,
 .back_arrow_toggle_icon {
 	display: flex;
 	justify-content: space-between;
+	margin-top: 0.5rem;
 }
 
 @keyframes slideInFromLeft {
@@ -141,7 +142,7 @@ html,
 .sidebar_mobile {
 	& {
 		position: fixed;
-		top: 75px;
+		top: 90px;
 		left: 0;
 		width: 80%;
 		max-width: 280px;

@@ -118,15 +118,13 @@ body {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: 2rem;
 	}
-
 	@include xs {
-		display: none;
+		gap: 1rem;
 	}
 
 	@include lg {
-		display: flex;
+		gap: 2rem;
 	}
 }
 
@@ -147,6 +145,13 @@ body {
 		cursor: pointer;
 		text-decoration: underline;
 	}
+	@include xs {
+		display: none;
+	}
+
+	@include lg {
+		display: flex;
+	}
 }
 
 .bell_icon {
@@ -158,10 +163,18 @@ body {
 
 .user_avatar {
 	& {
-		width: 48px;
-		height: 48px;
 		border-radius: 50%;
 		object-fit: cover;
+		image-resolution: from-image;
+	}
+	@include xs {
+		width: 30px;
+		height: 30px;
+	}
+
+	@include lg {
+		width: 48px;
+		height: 48px;
 	}
 }
 

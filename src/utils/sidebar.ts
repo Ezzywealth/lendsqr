@@ -104,5 +104,10 @@ export const sidebarObject = {
 			icon: '/assets/icons/audits_logs.png',
 			name: 'audit logs',
 		},
+		{
+			id: 4,
+			icon: '/assets/icons/system_messages.png',
+			name: 'Systems Messages',
+		},
 	],
 };

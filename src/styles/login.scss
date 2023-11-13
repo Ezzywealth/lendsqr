@@ -64,7 +64,11 @@ $font_family_normal: 'Avenir Next', sans-serif;
 }
 
 .image_logo {
-	& {
+	@include xs {
+		width: 100px;
+		height: 30px;
+	}
+	@include md {
 		width: 138.44px;
 		height: 36px;
 	}

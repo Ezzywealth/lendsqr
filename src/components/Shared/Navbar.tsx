@@ -21,7 +21,7 @@ const Navbar = () => {
 				<section className='navbar_right'>
 					<h4 className='docs'>Docs</h4>
 					<span className='bell_icon'>
-						<BsBell size={26} />
+						<BsBell size={24} />
 					</span>
 					<div className='user_info'>
 						<img src={admin?.image} alt='userImage' className='user_avatar' />
@@ -31,9 +31,9 @@ const Navbar = () => {
 						</span>
 					</div>
 				</section>
-				<span className='menu_icon'>
+				{/* <span className='menu_icon'>
 					<FaHamburger size={25} />
-				</span>
+				</span> */}
 			</div>
 		</nav>
 	);
