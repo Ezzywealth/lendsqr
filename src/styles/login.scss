@@ -36,6 +36,7 @@ $font_family_normal: 'Avenir Next', sans-serif;
 		gap: 6rem;
 		background-color: $primary_bg_color;
 		box-sizing: border-box;
+		padding-top: 3rem;
 	}
 	@include xs {
 		display: none;
@@ -66,7 +67,6 @@ $font_family_normal: 'Avenir Next', sans-serif;
 	& {
 		width: 138.44px;
 		height: 36px;
-		margin-top: 3rem;
 	}
 }
 

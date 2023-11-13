@@ -30,9 +30,11 @@ const UserDetails = () => {
 
 	return (
 		<Layout>
-			<section className='back_arrow' onClick={() => navigate('/users')}>
-				<HiOutlineArrowNarrowLeft size={30} />
-				Back to Users
+			<section>
+				<span className='back_arrow' onClick={() => navigate('/users')}>
+					<HiOutlineArrowNarrowLeft cursor='pointer' size={30} />
+					Back to Users
+				</span>
 			</section>
 			{!user && userError ? (
 				<ErrorComponent errorMessage={userError} reload={reload} />

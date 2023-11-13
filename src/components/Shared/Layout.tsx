@@ -17,10 +17,11 @@ const Layout = ({ children }: LayoutProps) => {
 	const [loading, setLoading] = useState(true);
 	const dispatch = useAppDispatch();
 	const admin = localStorage.getItem('admin') && JSON.parse(obfuscateToken(false, localStorage.getItem('admin') as string));
-
 	useEffect(() => {
-		if (admin) {
+		if (admin?.id) {
 			dispatch(setAdmin(admin));
+		} else {
+			window.location.assign('/');
 		}
 		setLoading(false);
 	}, [dispatch, admin]);

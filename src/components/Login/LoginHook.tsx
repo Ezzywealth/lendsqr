@@ -9,7 +9,6 @@ const LoginHook = () => {
 	const dispatch = useAppDispatch();
 	const handleLogin = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(email, password);
 		dispatch(loginService({ email, password }));
 	};
 	return {

@@ -14,8 +14,7 @@ const initialState: AuthProps = {
 };
 
 export const loginService = createAsyncThunk<AdminProps, LoginProps>('loginService', async (data) => {
-	console.log(data);
-	const res = await axios.get(`${base_url}`);
+	await axios.get(`${base_url}`);
 	await addUsers();
 	return admin;
 });
