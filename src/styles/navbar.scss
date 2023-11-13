@@ -1,3 +1,5 @@
+@import '_breakpoints.scss';
+
 $primary_color: #213f7d;
 $button_color: #39cdcc;
 $text_color: #545f7d;
@@ -34,6 +36,21 @@ body {
 		box-sizing: border-box;
 		background: $login_bg_color;
 		box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+	}
+}
+
+.nav_form_container {
+	& {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	@include xs {
+		display: none;
+	}
+
+	@include lg {
+		display: flex;
 	}
 }
 
@@ -96,6 +113,14 @@ body {
 		align-items: center;
 		gap: 2rem;
 	}
+
+	@include xs {
+		display: none;
+	}
+
+	@include lg {
+		display: flex;
+	}
 }
 
 .user_info {
@@ -147,5 +172,20 @@ body {
 		font-size: 1rem;
 		font-family: 'Roboto', sans-serif;
 		cursor: pointer;
+	}
+}
+
+.menu_icon {
+	& {
+		color: $primary-color;
+		cursor: pointer;
+	}
+
+	@include xs {
+		display: block;
+	}
+
+	@include lg {
+		display: none;
 	}
 }

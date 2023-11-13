@@ -79,12 +79,14 @@ $arrow_bg_color: rgba(#213f7d, 0.1);
 		padding: 1rem 1rem;
 		min-width: 200px;
 		max-width: 100%;
+		flex-grow: 1;
 	}
 
 	@include md {
 		padding: 1rem 1rem;
 		min-width: 220px;
 		max-width: 250px;
+		flex-grow: 0;
 	}
 
 	@include lg {
@@ -470,7 +472,17 @@ tbody {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-top: 20px;
+		margin: 20px 0;
+	}
+
+	@include xs {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	@include md {
+		flex-direction: row;
+		gap: 20px;
 	}
 }
 
