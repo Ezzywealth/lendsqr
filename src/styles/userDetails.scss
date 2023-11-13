@@ -143,12 +143,26 @@ body {
 .profile_container {
 	& {
 		background: $login_bg_color;
-		padding: 30px 30px 0px 30px;
 		width: 100%;
 		box-sizing: border-box;
 		overflow: auto;
 		display: flex;
 		flex-direction: column;
+	}
+
+	@include xs {
+		padding: 1rem;
+		padding-bottom: 0;
+	}
+
+	@include md {
+		padding: 1.2rem;
+		padding-bottom: 0;
+	}
+
+	@include lg {
+		padding: 1.5rem;
+		padding-bottom: 0;
 	}
 }
 
@@ -158,6 +172,7 @@ body {
 		align-items: center;
 		gap: 30px;
 		box-sizing: border-box;
+		flex-wrap: wrap;
 	}
 }
 
@@ -166,6 +181,10 @@ body {
 		display: flex;
 		align-items: center;
 		gap: 20px;
+	}
+	@include xs {
+		justify-content: space-between;
+		width: auto;
 	}
 }
 
@@ -199,6 +218,14 @@ body {
 		background-color: #ccc;
 		height: 50px;
 		margin: 0 10px;
+	}
+
+	@include xs {
+		display: none;
+	}
+
+	@include md {
+		display: block;
 	}
 }
 
@@ -267,25 +294,29 @@ body {
 	& {
 		margin-top: 50px;
 		display: flex;
+		width: 100%;
+		overflow-x: auto;
 	}
 }
 
 .tabs_list {
 	& {
 		display: flex;
-		justify-content: space-between;
 		margin: 0;
 		padding: 0;
 		text-decoration: none;
-		width: 100%;
 		gap: 1rem;
+		width: 100%;
+		white-space: nowrap;
+		justify-content: space-between;
+		overflow-x: auto; // Enable horizontal scrolling
 	}
 
 	.tab {
 		& {
 			text-decoration: none;
 			list-style: none;
-			width: 100%;
+			flex-shrink: 0;
 		}
 	}
 
@@ -358,6 +389,13 @@ body {
 	}
 }
 
+#guarantors_details {
+	& > .section_details:not(:last-child) {
+		gap: 30px;
+		border-bottom: 1px solid #ccc;
+	}
+}
+
 .guarantor {
 	& {
 		display: flex;
@@ -373,6 +411,7 @@ body {
 		justify-content: space-between;
 		row-gap: 30px;
 		column-gap: 1rem;
+		padding: 30px 0;
 	}
 	@include xs {
 		grid-template-columns: repeat(1, 1fr);
