@@ -1,4 +1,5 @@
-@import '_mixin.scss';
+@import '_button.scss';
+@import '_breakpoints.scss';
 
 $primary_color: #213f7d;
 $button_color: #39cdcc;
@@ -19,9 +20,18 @@ $arrow_bg_color: rgba(#213f7d, 0.1);
 	& {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 26px;
+
 		width: 100%;
 		box-sizing: border-box;
+	}
+	@include xs {
+		gap: 1rem;
+	}
+	@include lg {
+		gap: 1rem;
+	}
+	@include xl {
+		gap: 26px;
 	}
 }
 
@@ -51,12 +61,42 @@ $arrow_bg_color: rgba(#213f7d, 0.1);
 		background: #fff;
 		border-radius: 10px;
 		flex: 1;
-		width: 100%;
-		padding: 20px 30px;
+		width: auto;
+
 		box-shadow: $box_shadow;
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
+	}
+	@include xs {
+		padding: 20px 30px;
+		flex-grow: 1;
+		min-width: 150px;
+		max-width: 100%;
+	}
+
+	@include base {
+		padding: 1rem 1rem;
+		min-width: 200px;
+		max-width: 100%;
+	}
+
+	@include md {
+		padding: 1rem 1rem;
+		min-width: 220px;
+		max-width: 250px;
+	}
+
+	@include lg {
+		padding: 1rem 1rem;
+		min-width: 200px;
+		max-width: 200px;
+	}
+
+	@include xl {
+		padding: 20px 30px;
+		min-width: 150px;
+		max-width: 200px;
 	}
 }
 

@@ -1,3 +1,5 @@
+@import '_breakpoints.scss';
+
 $primary_color: #213f7d;
 $button_color: #39cdcc;
 $text_color: #545f7d;
@@ -38,8 +40,14 @@ body {
 		width: 283px;
 		padding: 0;
 		margin: 0;
-		display: flex;
+
 		align-items: flex-start;
+	}
+	@include xs {
+		display: none;
+	}
+	@include lg {
+		display: flex;
 	}
 }
 
@@ -56,5 +64,14 @@ a {
 		box-sizing: border-box;
 		overflow: hidden;
 		width: 100%;
+	}
+	@include xs {
+		padding: 1rem;
+	}
+	@include md {
+		padding: 1rem;
+	}
+	@include lg {
+		padding: 2rem;
 	}
 }

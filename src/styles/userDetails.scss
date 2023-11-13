@@ -1,4 +1,5 @@
-@import '_mixin.scss';
+@import '_button.scss';
+@import '_breakpoints.scss';
 
 $primary_color: #213f7d;
 $button_color: #39cdcc;
@@ -283,7 +284,15 @@ body {
 	& {
 		margin-top: 30px;
 		background: $login_bg_color;
-		padding: 30px;
+	}
+	@include xs {
+		padding: 1rem;
+	}
+	@include md {
+		padding: 1rem;
+	}
+	@include lg {
+		padding: 2rem;
 	}
 
 	h3,
@@ -324,9 +333,24 @@ body {
 .section_details {
 	& {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
 		justify-content: space-between;
 		row-gap: 30px;
+		column-gap: 1rem;
+	}
+	@include xs {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	@include base {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include md {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@include lg {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@include xl {
+		grid-template-columns: repeat(4, 1fr);
 	}
 }
 
