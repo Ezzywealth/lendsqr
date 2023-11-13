@@ -32,18 +32,25 @@ body {
 		align-items: flex-start;
 		width: 100%;
 		position: relative;
-		padding-top: 90px;
+		padding-top: 75px;
 	}
 }
 
 .aside_container {
 	& {
 		min-width: 283px;
-		width: 283px;
+		width: 290px;
 		padding: 0;
 		margin: 0;
 		align-items: flex-start;
+		height: 100vh;
+		overflow: auto;
+		background-color: $login-bg-color;
+		position: fixed;
+		top: 90px;
+		left: 0;
 	}
+
 	@include xs {
 		display: none;
 	}
@@ -74,5 +81,6 @@ a {
 	}
 	@include lg {
 		padding: 2rem;
+		margin-left: 283px;
 	}
 }

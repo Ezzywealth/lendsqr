@@ -32,6 +32,7 @@ $active-bg-color: #e8fafa;
 	height: 100%;
 	margin: 0;
 	padding-top: 2rem;
+	margin-bottom: 2rem;
 	width: 100%;
 }
 
@@ -51,6 +52,12 @@ $active-bg-color: #e8fafa;
 	padding: 0rem 1.875rem;
 	text-transform: uppercase;
 	font-size: 0.75rem;
+}
+
+.sidebar_links {
+	& {
+		padding-bottom: 5rem;
+	}
 }
 
 .side_links_container {
