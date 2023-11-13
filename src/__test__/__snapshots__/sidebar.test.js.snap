@@ -1,0 +1,443 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar component renders Pagination component 1`] = `
+<div>
+  <aside
+    class="sidebar_container"
+  >
+    <div
+      class="switch_container"
+    >
+      <img
+        alt="switch_icon"
+        src="/assets/icons/switch_organization.png"
+      />
+      <h2
+        class="switch_text"
+      >
+        Switch Organization
+      </h2>
+      <img
+        alt="switch"
+        src="/assets/icons/arrow_down.png"
+      />
+    </div>
+    <div
+      class="dashboard_container"
+    >
+      <img
+        alt="dashboard_icon"
+        src="/assets/icons/dashboard.png"
+      />
+      <h3
+        class="dashboard_text"
+      >
+        Dashboard
+      </h3>
+    </div>
+    <article
+      class="sidebar_links"
+    >
+      <section
+        class="links_section"
+      >
+        <h3
+          class="section_title"
+        >
+          customers
+        </h3>
+        <ul
+          class="side_links_container"
+        >
+          <a
+            href="users"
+          >
+            <li
+              class="side_links active_link"
+            >
+              <img
+                alt="users"
+                class="side_links_icon"
+                src="/assets/icons/users.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                users
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="guarantors"
+                class="side_links_icon"
+                src="/assets/icons/guarantors.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                guarantors
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="loans"
+                class="side_links_icon"
+                src="/assets/icons/loans.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                loans
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="decision models"
+                class="side_links_icon"
+                src="/assets/icons/decision_models.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                decision models
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="savings"
+                class="side_links_icon"
+                src="/assets/icons/savings.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                savings
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="loan requests"
+                class="side_links_icon"
+                src="/assets/icons/loan_request.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                loan requests
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="whitelist"
+                class="side_links_icon"
+                src="/assets/icons/whitelist.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                whitelist
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="karma"
+                class="side_links_icon"
+                src="/assets/icons/karma.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                karma
+              </h4>
+            </li>
+          </a>
+        </ul>
+      </section>
+      <section
+        class="links_section"
+      >
+        <h3
+          class="section_title"
+        >
+          businesses
+        </h3>
+        <ul
+          class="side_links_container"
+        >
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="organization"
+                class="side_links_icon"
+                src="/assets/icons/organization.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                organization
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="loan products"
+                class="side_links_icon"
+                src="/assets/icons/loan_product.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                loan products
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="savings products"
+                class="side_links_icon"
+                src="/assets/icons/savings_product.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                savings products
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="fees and charges"
+                class="side_links_icon"
+                src="/assets/icons/fees_charges.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                fees and charges
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="transactions"
+                class="side_links_icon"
+                src="/assets/icons/transactions.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                transactions
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="services"
+                class="side_links_icon"
+                src="/assets/icons/services.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                services
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="service account"
+                class="side_links_icon"
+                src="/assets/icons/service_account.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                service account
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="settlements"
+                class="side_links_icon"
+                src="/assets/icons/settlements.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                settlements
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="reports"
+                class="side_links_icon"
+                src="/assets/icons/reports.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                reports
+              </h4>
+            </li>
+          </a>
+        </ul>
+      </section>
+      <section
+        class="links_section"
+      >
+        <h3
+          class="section_title"
+        >
+          settings
+        </h3>
+        <ul
+          class="side_links_container"
+        >
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="preferences"
+                class="side_links_icon"
+                src="/assets/icons/preferences.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                preferences
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="fees and pricing"
+                class="side_links_icon"
+                src="/assets/icons/fees_pricing.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                fees and pricing
+              </h4>
+            </li>
+          </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="audit logs"
+                class="side_links_icon"
+                src="/assets/icons/audits_logs.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                audit logs
+              </h4>
+            </li>
+          </a>
+        </ul>
+      </section>
+    </article>
+  </aside>
+</div>
+`;

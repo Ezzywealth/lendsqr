@@ -25,7 +25,7 @@ const Table = () => {
 									<th key={index}>
 										<div className='filter_container'>
 											{header}
-											<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter-icon' onClick={() => setShowFilterModal(true)} />
+											<img src='/assets/icons/users/filter-button.png' alt='filter' className='filter-icon' onClick={() => setShowFilterModal(true)} data-testId={`filter-${index}`} />
 										</div>
 									</th>
 								);
@@ -33,9 +33,9 @@ const Table = () => {
 						</tr>
 					</thead>
 					<tbody className='table-body'>
-						{filteredUsers?.map((user: UserProps) => {
+						{filteredUsers?.map((user: UserProps, index) => {
 							return (
-								<tr key={user.customId} className='table-data-row'>
+								<tr key={user.customId} className='table-data-row' data-testId={`row-${index + 1}`}>
 									<td>{user.organization}</td>
 									<td>{user.username}</td>
 									<td>{user.email}</td>
@@ -52,6 +52,7 @@ const Table = () => {
 												handleOptionsModal(true);
 											}}
 											cursor='pointer'
+											data-testid={`three-dots-${index + 1}`}
 										/>
 										<div className={`${showOptionsModal && activeRow === user.customId ? 'options-modal show' : 'hide-modal'}`}>
 											<OptionsModal id={user.customId} />

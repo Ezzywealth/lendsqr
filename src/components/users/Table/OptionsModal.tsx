@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { BsEye, BsPersonXFill, BsPersonCheckFill } from 'react-icons/bs';
+import { BsEye } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import TableHook, { optionsData } from './Hook/TableHook';
-import { OptionsDataProp, StatusProp } from '../../../interfaces/typings';
-import { LineWave, RotatingLines } from 'react-loader-spinner';
-import LineWaveLoader from '../../Shared/LineWaveLoader';
+import { RotatingLines } from 'react-loader-spinner';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../Redux/slices/userSlice';
 
@@ -13,9 +11,9 @@ type Props = {
 };
 
 const OptionsModal = ({ id }: Props) => {
-	const { handleUserStatus, handleOptionsModal } = TableHook();
 	const { updateLoading } = useSelector((state: RootState) => state.users);
 	const [optionsId, setOptionsId] = useState(0);
+	const { handleUserStatus, handleOptionsModal } = TableHook();
 
 	return (
 		<div className='options_modal_container show'>
