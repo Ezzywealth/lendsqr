@@ -1,8 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import { useAppDispatch } from '../../Redux/store';
-import { loginService } from '../../Redux/slices/authSlice';
+import { loginService, logoutService } from '../../Redux/slices/authSlice';
 
-const LoginHook = () => {
+const AuthHook = () => {
 	const [showPassword, setShowPassword] = useState(false);
 	const [email, setEmail] = useState('admin@example.com');
 	const [password, setPassword] = useState('password123');
@@ -11,6 +11,11 @@ const LoginHook = () => {
 		e.preventDefault();
 		dispatch(loginService({ email, password }));
 	};
+
+	const handleLogout = () => {
+		dispatch(logoutService());
+	};
+
 	return {
 		showPassword,
 		setShowPassword,
@@ -19,7 +24,8 @@ const LoginHook = () => {
 		setEmail,
 		password,
 		setPassword,
+		handleLogout,
 	};
 };
 
-export default LoginHook;
+export default AuthHook;

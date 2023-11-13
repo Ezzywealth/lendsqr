@@ -89,7 +89,21 @@ $active-bg-color: #e8fafa;
 	background: $active-bg-color;
 }
 
-.side_links_icon {
+.logout_container {
+	& {
+		display: flex;
+		align-items: center;
+		padding: 0rem 1.875rem 3rem 1.875rem;
+		gap: 10px;
+		text-transform: capitalize;
+		font-family: $font-family;
+		color: $primary-color;
+		cursor: pointer;
+	}
+	h3 {
+		margin: 0;
+		font-weight: 500;
+	}
 }
 
 .side_links_name {

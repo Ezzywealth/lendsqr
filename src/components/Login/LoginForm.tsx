@@ -1,12 +1,11 @@
 import React from 'react';
-import LoginHook from './LoginHook';
+import AuthHook from './AuthHook';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/slices/authSlice';
-import { CirclesWithBar, RotatingLines } from 'react-loader-spinner';
-import LineWaveLoader from '../Shared/LineWaveLoader';
+import { RotatingLines } from 'react-loader-spinner';
 
 const LoginForm = () => {
-	const { showPassword, setShowPassword, handleLogin, email, setEmail, password, setPassword } = LoginHook();
+	const { showPassword, setShowPassword, handleLogin, email, setEmail, password, setPassword } = AuthHook();
 	const { loginLoading } = useSelector((state: RootState) => state.auth);
 
 	return (

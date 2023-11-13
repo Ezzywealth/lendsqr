@@ -35,6 +35,8 @@ export type AuthProps = {
 	admin: undefined | AdminProps;
 	loginLoading: boolean;
 	loginError: string;
+	logoutLoading: boolean;
+	logoutError: string;
 };
 
 export type AppState = {

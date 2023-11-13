@@ -2,9 +2,16 @@ import React from 'react';
 import { sidebarObject } from '../../utils/sidebar';
 import '../../styles/sidebar.scss';
 import { Link } from 'react-router-dom';
+import { MdLogout } from 'react-icons/md';
+import AuthHook from '../Login/AuthHook';
+import { RootState } from '../../Redux/slices/authSlice';
+import { useSelector } from 'react-redux';
+import RotatingSpinner from './RotatingSpinner';
 
 const Sidebar = () => {
 	const [activeLink, setActiveLink] = React.useState('users');
+	const { handleLogout } = AuthHook();
+	const { logoutLoading } = useSelector((state: RootState) => state.auth);
 	return (
 		<aside className='sidebar_container'>
 			<div className='switch_container'>
@@ -32,6 +39,11 @@ const Sidebar = () => {
 						</ul>
 					</section>
 				))}
+				<div className='logout_container' onClick={handleLogout}>
+					<MdLogout />
+					<h3 className='logout_text'>Logout</h3>
+					{logoutLoading && <RotatingSpinner color='#213f7d' />}
+				</div>
 			</article>
 		</aside>
 	);
