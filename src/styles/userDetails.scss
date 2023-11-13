@@ -26,6 +26,14 @@ body {
 		gap: 10px;
 		box-sizing: border-box;
 	}
+
+	@include xs {
+		flex-direction: column;
+	}
+
+	@include base {
+		flex-direction: row;
+	}
 }
 
 .back_arrow {
@@ -43,9 +51,17 @@ body {
 .header_title {
 	& {
 		color: $primary_color;
-		font-size: 1.5rem;
+
 		font-weight: 500;
 		font-family: $font_family;
+	}
+
+	@include xs {
+		font-size: 1.3rem;
+	}
+
+	@include md {
+		font-size: 1.5rem;
 	}
 }
 
@@ -54,6 +70,14 @@ body {
 		display: flex;
 		gap: 10px;
 		align-items: center;
+	}
+
+	@include xs {
+		flex-direction: column;
+	}
+
+	@include sm {
+		flex-direction: row;
 	}
 }
 
@@ -121,6 +145,9 @@ body {
 		padding: 30px 30px 0px 30px;
 		width: 100%;
 		box-sizing: border-box;
+		overflow: auto;
+		display: flex;
+		flex-direction: column;
 	}
 }
 
@@ -238,6 +265,7 @@ body {
 .profile_bottom {
 	& {
 		margin-top: 50px;
+		display: flex;
 	}
 }
 
@@ -245,16 +273,18 @@ body {
 	& {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
 		margin: 0;
 		padding: 0;
 		text-decoration: none;
+		width: 100%;
+		gap: 1rem;
 	}
 
 	.tab {
 		& {
 			text-decoration: none;
 			list-style: none;
+			width: 100%;
 		}
 	}
 
@@ -308,6 +338,12 @@ body {
 			padding: 0;
 			margin: 0;
 		}
+	}
+}
+
+#guarantors_details {
+	&:last-child {
+		border-bottom: none;
 	}
 }
 

@@ -95,7 +95,7 @@ const DetailsInformation = ({ user }: Props) => {
 			</article>
 			<article className=' guarantor'>
 				<h3 className='information_title'>Guarantors</h3>
-				<div>
+				<div id='guarantors_details'>
 					{user?.guarantor.map((item, index) => (
 						<div className='section_details information_section' key={index + 1}>
 							<div className='details_container'>

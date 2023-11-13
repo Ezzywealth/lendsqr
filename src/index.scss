@@ -66,3 +66,25 @@ html,
 		align-items: center;
 	}
 }
+
+.error_container {
+	& {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+}
+
+.error_message {
+	& {
+		display: flex;
+		width: 100%;
+		color: #e4033b;
+		font-size: 1rem;
+		font-weight: 600;
+		justify-content: center;
+		margin: 0;
+	}
+}

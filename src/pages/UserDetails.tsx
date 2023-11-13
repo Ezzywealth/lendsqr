@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../Redux/store';
 import { RootState, fetchUserById } from '../Redux/slices/userSlice';
 import { useSelector } from 'react-redux';
+import ErrorComponent from '../components/ErrorComponent';
 
 const UserDetails = () => {
 	const params = useParams();
@@ -18,10 +19,14 @@ const UserDetails = () => {
 	const { user, userError } = useSelector((state: RootState) => state.users);
 
 	useEffect(() => {
+		reload();
+	}, [params, dispatch]);
+
+	const reload = () => {
 		if (params?.id) {
 			dispatch(fetchUserById(params?.id));
 		}
-	}, [params, dispatch]);
+	};
 
 	return (
 		<Layout>
@@ -30,7 +35,7 @@ const UserDetails = () => {
 				Back to Users
 			</section>
 			{!user && userError ? (
-				<h2 className='error message'>{userError}</h2>
+				<ErrorComponent errorMessage={userError} reload={reload} />
 			) : (
 				<>
 					<DetailsHeader id={user?.customId} />

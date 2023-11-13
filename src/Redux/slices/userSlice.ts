@@ -154,7 +154,7 @@ const usersSlice = createSlice({
 			state.filteredUsers = [];
 			state.usersLoading = false;
 			state.noOfItems = 0;
-			state.usersError = 'An error occured';
+			state.usersError = 'An error occured while fetching users. Refresh !!!';
 		});
 		builder.addCase(fetchUsers.pending, (state) => {
 			state.usersLoading = true;
