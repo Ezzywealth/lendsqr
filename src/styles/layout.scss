@@ -31,6 +31,8 @@ body {
 		display: flex;
 		align-items: flex-start;
 		width: 100%;
+		position: relative;
+		padding-top: 90px;
 	}
 }
 
@@ -40,7 +42,6 @@ body {
 		width: 283px;
 		padding: 0;
 		margin: 0;
-
 		align-items: flex-start;
 	}
 	@include xs {

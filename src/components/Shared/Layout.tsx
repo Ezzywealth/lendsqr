@@ -13,7 +13,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-	const { usersLoading, userLoading } = useSelector((state: any) => state.users);
+	const { usersLoading, userLoading, sidebarOpen } = useSelector((state: any) => state.users);
 	const [loading, setLoading] = useState(true);
 	const dispatch = useAppDispatch();
 	const admin = localStorage.getItem('admin') && JSON.parse(obfuscateToken(false, localStorage.getItem('admin') as string));
@@ -35,6 +35,9 @@ const Layout = ({ children }: LayoutProps) => {
 			<Navbar />
 			<main className='main_section_container'>
 				<section className='aside_container'>
+					<Sidebar />
+				</section>
+				<section className={`sidebar_mobile ${sidebarOpen ? 'slideInFromLeft' : 'slideOutToLeft'}`}>
 					<Sidebar />
 				</section>
 				<section className='main_body'>{children}</section>

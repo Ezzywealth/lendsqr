@@ -37,6 +37,13 @@ body {
 		background: $login_bg_color;
 		box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
 	}
+	@include xs {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		width: 100%;
+	}
 }
 
 .nav_form_container {

@@ -119,3 +119,50 @@ html,
 	display: flex;
 	justify-content: space-between;
 }
+
+@keyframes slideInFromLeft {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideOutToLeft {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-105%);
+	}
+}
+
+.sidebar_mobile {
+	& {
+		position: fixed;
+		top: 90px;
+		left: 0;
+		width: 80%;
+		max-width: 280px;
+		height: 100vh;
+		z-index: 9999;
+		overflow: auto;
+		background-color: $login_bg_color;
+	}
+	@include xs {
+		display: flex;
+	}
+	@include lg {
+		display: none;
+	}
+}
+
+.slideInFromLeft {
+	animation: 0.3s ease-out 0s 1 slideInFromLeft;
+}
+
+.slideOutToLeft {
+	animation: 0.3s ease-out 0s 1 slideOutToLeft;
+	display: none;
+}
