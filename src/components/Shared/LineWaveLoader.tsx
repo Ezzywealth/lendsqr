@@ -7,7 +7,7 @@ type Props = {
 const LineWaveLoader = ({ color }: Props) => {
 	return (
 		<div>
-			<LineWave height='50' width='50' color={color} ariaLabel='line-wave' wrapperStyle={{}} wrapperClass='' visible={true} firstLineColor='' middleLineColor='' lastLineColor='' />
+			<LineWave height='80' width='80' color={color} ariaLabel='line-wave' wrapperStyle={{}} wrapperClass='' visible={true} firstLineColor='' middleLineColor='' lastLineColor='' />
 		</div>
 	);
 };

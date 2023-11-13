@@ -4,8 +4,8 @@ import { loginService } from '../../Redux/slices/authSlice';
 
 const LoginHook = () => {
 	const [showPassword, setShowPassword] = useState(false);
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const [email, setEmail] = useState('admin@example.com');
+	const [password, setPassword] = useState('password123');
 	const dispatch = useAppDispatch();
 	const handleLogin = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
