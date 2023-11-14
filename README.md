@@ -39,7 +39,7 @@
   <li><a href="https://sass-lang.com/documentation/">SASS</a></li>
   <li><a href="https://jestjs.io/docs/getting-started">jest</a></li>
   <li><a href="https://mocky.io/">Mocky.io</a></li>
-  <li><a href="https://mocky.io/">IndexedDb</a></li>
+  <li><a href="https://javascript.info/indexeddb">IndexedDb</a></li>
 </ul>
 
 ### Key Features <a name="key-features"></a>
@@ -87,7 +87,7 @@ To clone this repository to your desired folder, follow the steps below:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Ezzywealth/cab_bookings_frontend
+  git clone https://github.com/Ezzywealth/lendsqr.git
 ```
 
 **Using GitHub Desktop app**
@@ -106,6 +106,7 @@ To run the project, execute the following command:
 - **npm install**
 - **npm start**
 - **Click Login button on the login page with pre-filled login details**
+- **Add the following to your env file**
 
 ```sh
  REACT_APP_API = https://run.mocky.io/v3/39ea9fd0-3025-4287-a056-078c5df0f118
@@ -124,7 +125,8 @@ TO test the project using react testing library, execute the following command:
 
 You can deploy this project by:
 
-- visiting [Vercel](https://vercel.com)
+- visit [Vercel.com](https://vercel.com)
+- Register to get an account if you don't have one
 - Click on Add new project
 - Select project options
 - Select lendsqr repo

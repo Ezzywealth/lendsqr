@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AppState, StatusProp, UpdateStatusProps, UserProps } from '../../interfaces/typings';
 import axios from 'axios';
 import { getAllUsers, searchUserById, updateUserStatusById } from '../../utils/Database/indexDb';
+import { toast } from 'react-toastify';
 const base_url = process.env.REACT_APP_API;
 
 const initialState: AppState = {
@@ -225,6 +226,7 @@ const usersSlice = createSlice({
 				return item;
 			});
 			state.showOptionsModal = false;
+			toast.success('Status updated successfully');
 		});
 		builder.addCase(updateUserStatus.rejected, (state) => {
 			state.updateLoading = false;

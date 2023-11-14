@@ -4,6 +4,7 @@ import { admin } from '../../utils/userDetails';
 import { obfuscateToken } from '../../utils/encryptTokens';
 import { AdminProps, AuthProps, LoginProps } from '../../interfaces/typings';
 import { addUsers } from '../../utils/Database/indexDb';
+import { toast } from 'react-toastify';
 
 const base_url = process.env.REACT_APP_API;
 
@@ -43,6 +44,7 @@ const authSlice = createSlice({
 			console.log(action.payload);
 			state.loginLoading = false;
 			state.admin = action.payload;
+			toast.success('Login Successful');
 			localStorage.setItem('admin', obfuscateToken(true, JSON.stringify(action.payload)));
 
 			window.location.href = '/users';
@@ -58,6 +60,7 @@ const authSlice = createSlice({
 			state.logoutLoading = false;
 			state.admin = undefined;
 			localStorage.removeItem('admin');
+			toast.success('Logout Successful');
 			window.location.href = '/';
 		});
 		builder.addCase(logoutService.rejected, (state, action) => {
