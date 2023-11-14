@@ -22,37 +22,64 @@ const openDatabase = (): IDBOpenDBRequest => {
 };
 
 // Function to add multiple user records to the database
-export const addUsers = () => {
-	const users: UserProps[] = usersData;
-	const request: IDBOpenDBRequest = openDatabase();
+export const addUsers = (): Promise<{ status: 'success' | 'existingData' | 'error' }> => {
+	return new Promise((resolve) => {
+		const users: UserProps[] = usersData;
+		const request: IDBOpenDBRequest = openDatabase();
 
-	request.onsuccess = (event: Event) => {
-		const db: IDBDatabase = 'result' in request ? request.result : (event.target as IDBOpenDBRequest).result;
-		// Create a transaction and get the Users object store
-		const transaction: IDBTransaction = db.transaction(['Users'], 'readwrite');
-		const userStore: IDBObjectStore = transaction.objectStore('Users');
-		// Add each user to the Users object store
-		users.forEach((user: UserProps) => {
-			// Use the 'add' method to let IndexedDB generate a key
-			const addRequest: IDBRequest<IDBValidKey> = userStore.add(user);
+		request.onsuccess = (event: Event) => {
+			const db: IDBDatabase = 'result' in request ? request.result : (event.target as IDBOpenDBRequest).result;
 
-			addRequest.onsuccess = (): void => {
-				console.log(`User added successfully with generated key: ${addRequest.result}`);
+			const transaction: IDBTransaction = db.transaction(['Users'], 'readonly'); // Use readonly transaction
+			const userStore: IDBObjectStore = transaction.objectStore('Users');
+
+			const getAllRequest: IDBRequest<UserProps[]> = userStore.getAll();
+
+			getAllRequest.onsuccess = () => {
+				const existingUsers: UserProps[] = getAllRequest.result;
+
+				if (existingUsers.length > 0) {
+					// There is existing data, don't add new users
+					resolve({ status: 'existingData' });
+				} else {
+					// No existing data, proceed to add users
+					const writeTransaction: IDBTransaction = db.transaction(['Users'], 'readwrite');
+					const writeUserStore: IDBObjectStore = writeTransaction.objectStore('Users');
+
+					// Add each user to the Users object store
+					users.forEach((user: UserProps) => {
+						const addRequest: IDBRequest<IDBValidKey> = writeUserStore.add(user);
+
+						addRequest.onsuccess = (): void => {
+							console.log(`User added successfully with generated key: ${addRequest.result}`);
+						};
+
+						addRequest.onerror = (errorEvent: Event): void => {
+							const error: DOMException | null = (errorEvent.target as IDBRequest).error;
+							console.error(`Error adding user: ${error?.message}`, user);
+						};
+					});
+
+					writeTransaction.oncomplete = () => {
+						resolve({ status: 'success' });
+					};
+
+					writeTransaction.onerror = () => {
+						resolve({ status: 'error' });
+					};
+				}
 			};
 
-			addRequest.onerror = (errorEvent: Event): void => {
-				const error: DOMException | null = (errorEvent.target as IDBRequest).error;
-				console.error(`Error adding user: ${error?.message}`, user);
+			getAllRequest.onerror = () => {
+				resolve({ status: 'error' });
 			};
-		});
-		return {
-			status: 'success',
 		};
-	};
 
-	request.onerror = (): void => {
-		console.error('Error opening database');
-	};
+		request.onerror = (): void => {
+			console.error('Error opening database');
+			resolve({ status: 'error' });
+		};
+	});
 };
 
 export const getAllUsers = async (callback: (users: UserProps[]) => void) => {
@@ -144,7 +171,6 @@ export const updateUserStatusById = (customId: string, newStatus: StatusProp, ca
 						const updateRequest: IDBRequest<IDBValidKey> = userStore.put(userData);
 
 						updateRequest.onsuccess = (): void => {
-							console.log(`User status updated successfully for ID ${customId}`);
 							callback(true);
 						};
 
