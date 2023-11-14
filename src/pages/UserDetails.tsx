@@ -38,7 +38,7 @@ const UserDetails = () => {
 				</span>
 				<SidebarToggle />
 			</section>
-			{!user && userError ? (
+			{!user || userError ? (
 				<ErrorComponent errorMessage={userError} reload={reload} />
 			) : (
 				<>
