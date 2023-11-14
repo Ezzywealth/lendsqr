@@ -9,7 +9,6 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [Kanban](#kanban-board)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
@@ -26,9 +25,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# Carbooky <a name="about-project"></a>
-
-- Click this [link](https://github.com/lendsqr) to access the backend app that was built using rails and postgres.
+# Lendsqr Dasboard <a name="about-project"></a>
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -39,8 +36,10 @@
   <li><a href="https://reactjs.org/">ReactJS</a></li>
   <li><a href="https://reactrouter.com/en/main">React Router</a></li>
   <li><a href="https://redux.js.org/redux-toolkit/overview">Redux Toolkit</a></li>
-  <li><a href="https://redux.js.org/redux-toolkit/overview">SASS</a></li>
-  <li><a href="https://redux.js.org/redux-toolkit/overview">jest</a></li>
+  <li><a href="https://sass-lang.com/documentation/">SASS</a></li>
+  <li><a href="https://jestjs.io/docs/getting-started">jest</a></li>
+  <li><a href="https://mocky.io/">Mocky.io</a></li>
+  <li><a href="https://mocky.io/">IndexedDb</a></li>
 </ul>
 
 ### Key Features <a name="key-features"></a>
@@ -50,9 +49,10 @@
 - **Retrieved users data from indexedDb**
 - **Retrieved single user details from indexedDb**
 - **Update user status saved**
-- **Delete cab page**
-- **Reservation page**
-- **Add Reservation Page**
+- **Login and Logout Functionalities**
+- **Filter users**
+- **Blacklist user**
+- **Activate user**
 - **Responsiveness**
 - **Unit Testing**
 
@@ -94,7 +94,7 @@ To clone this repository to your desired folder, follow the steps below:
 
 - Follow the steps below
 
-  - Visit this link "https://github.com/Ezzywealth/cab_bookings_frontend"
+  - Visit this link "https://github.com/Ezzywealth/lendsqr"
   - Click the green button labelled "code"
   - Select the "Open with GitHub Desktop" option
   - After the GitHub Desktop add opens, click the "clone repo" button
@@ -105,20 +105,10 @@ To run the project, execute the following command:
 
 - **npm install**
 - **npm start**
-- **Click Sign up button on the homepage**
-
-To be able to upload a cab image in development, kindly follow this step,
-
-- **[Cloudinary](https://console.cloudinary.com/)**
-- **sign up to get your upload preset and cloud name**
-- **Run the api server first before the frontend server, this would ensure the api runs at port 3000**
-- **Add the following information in your .env file of the frontend application with their respective values**
+- **Click Login button on the login page with pre-filled login details**
 
 ```sh
-  REACT_APP_CLOUDINARY_CLOUD_NAME
-  REACT_APP_CLOUDINARY_UPLOAD_PRESET
-  REACT_APP_API_URL=http://127.0.0.1:3000/api/v1
-  REACT_APP_API_USERS=http://127.0.0.1:3000/api/v1/users
+ REACT_APP_API = https://run.mocky.io/v3/39ea9fd0-3025-4287-a056-078c5df0f118
 ```
 
 TO test the project using react testing library, execute the following command:
@@ -134,10 +124,11 @@ TO test the project using react testing library, execute the following command:
 
 You can deploy this project by:
 
-- visiting your repository on [GitHub](https://github.com)
-- Click on settings
-- Go to the "Pages" option
-- Select the main branch and save
+- visiting [Vercel](https://vercel.com)
+- Click on Add new project
+- Select project options
+- Select lendsqr repo
+- Deploy using vercel
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -149,23 +140,11 @@ You can deploy this project by:
 - Twitter: [@Ezzywealth](https://twitter.com/EzzyWealth)
 - LinkedIn: [Ezekiel Udiomuno](https://linkedin.com/in/ezekiel-udiomnuno)
 
-👤 **John Kpordje**
-
-- GitHub: [@outkarm](https://github.com/Outkarm)
-- Twitter: [@outkarm](https://twitter.com/outkarm)
-- LinkedIn: [John Kpordje](https://www.linkedin.com/in/john-kpordje-866749241/)
-
-👤 **Abdimulhin Adan**
-
-- GitHub: [@AbdimulhinYussuf3675](https://github.com/AbdimulhinYussuf3675)
-- Twitter: [@abdimulhin](https://twitter.com/abdimulhin)
-- LinkedIn: [Abdimulhin Adan](https://github.com/AbdimulhinYussuf3675)
-
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Account Profile Page]**
-- [ ] **[Reservation Details page]**
-- [ ] **[Reservation History page]**
+- [ ] **[Full functional Navigation]**
+- [ ] **[User profile settings and update]**
+- [ ] **[Registration and AccessToken Implementation]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -186,9 +165,7 @@ particular.
 
 We would like to thank...
 
-- [Microverse](https://www.microverse.org/) for learning the oppotunity
-
-- [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) for the design.
+- [Microverse](https://lendsqr.com/) for the opportunity to take the assessment test.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
