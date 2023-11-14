@@ -39,9 +39,13 @@ const TableHook = () => {
 	};
 
 	const applyFilters = () => {
-		console.log('applyFilters');
-		console.log(organization, username, phoneNumber, date, email, status);
 		dispatch(filterUsers({ organization, username, phoneNumber, date, email, status }));
+		setOrganization('');
+		setUsername('');
+		setPhoneNumber('');
+		setDate('');
+		setEmail('');
+		setStatus('');
 	};
 
 	const handlePageChange = (page: number) => {

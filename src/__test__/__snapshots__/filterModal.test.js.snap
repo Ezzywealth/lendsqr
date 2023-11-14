@@ -6,7 +6,7 @@ exports[`Modal component renders LoginForm component 1`] = `
     class="modal show"
   >
     <div
-      class="modal-content"
+      class="modal_content"
     >
       <label>
         Organization
@@ -108,7 +108,7 @@ exports[`Modal component renders LoginForm component 1`] = `
         </select>
       </label>
       <div
-        class="button-container"
+        class="button_container"
       >
         <button
           class="btn cancel_button"

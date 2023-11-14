@@ -4,10 +4,10 @@ exports[`Table component renders LoginForm component 1`] = `
 <div>
   <div>
     <div
-      class="table-responsive"
+      class="table_responsive"
     >
       <table
-        class="custom-table"
+        class="custom_table"
       >
         <thead>
           <tr>
@@ -18,7 +18,7 @@ exports[`Table component renders LoginForm component 1`] = `
                 organization
                 <img
                   alt="filter"
-                  class="filter-icon"
+                  class="filter_icon"
                   data-testid="filter-0"
                   src="/assets/icons/users/filter-button.png"
                 />
@@ -31,7 +31,7 @@ exports[`Table component renders LoginForm component 1`] = `
                 username
                 <img
                   alt="filter"
-                  class="filter-icon"
+                  class="filter_icon"
                   data-testid="filter-1"
                   src="/assets/icons/users/filter-button.png"
                 />
@@ -44,7 +44,7 @@ exports[`Table component renders LoginForm component 1`] = `
                 email
                 <img
                   alt="filter"
-                  class="filter-icon"
+                  class="filter_icon"
                   data-testid="filter-2"
                   src="/assets/icons/users/filter-button.png"
                 />
@@ -57,7 +57,7 @@ exports[`Table component renders LoginForm component 1`] = `
                 phone number
                 <img
                   alt="filter"
-                  class="filter-icon"
+                  class="filter_icon"
                   data-testid="filter-3"
                   src="/assets/icons/users/filter-button.png"
                 />
@@ -70,7 +70,7 @@ exports[`Table component renders LoginForm component 1`] = `
                 date joined
                 <img
                   alt="filter"
-                  class="filter-icon"
+                  class="filter_icon"
                   data-testid="filter-4"
                   src="/assets/icons/users/filter-button.png"
                 />
@@ -83,7 +83,7 @@ exports[`Table component renders LoginForm component 1`] = `
                 status
                 <img
                   alt="filter"
-                  class="filter-icon"
+                  class="filter_icon"
                   data-testid="filter-5"
                   src="/assets/icons/users/filter-button.png"
                 />
@@ -92,10 +92,10 @@ exports[`Table component renders LoginForm component 1`] = `
           </tr>
         </thead>
         <tbody
-          class="table-body"
+          class="table_body"
         >
           <tr
-            class="hide-modal"
+            class="hide_modal"
           >
             <td
               colspan="3"
@@ -104,7 +104,7 @@ exports[`Table component renders LoginForm component 1`] = `
                 class="modal show"
               >
                 <div
-                  class="modal-content"
+                  class="modal_content"
                 >
                   <label>
                     Organization
@@ -206,7 +206,7 @@ exports[`Table component renders LoginForm component 1`] = `
                     </select>
                   </label>
                   <div
-                    class="button-container"
+                    class="button_container"
                   >
                     <button
                       class="btn cancel_button"
@@ -227,16 +227,16 @@ exports[`Table component renders LoginForm component 1`] = `
       </table>
     </div>
     <div
-      class="pagination-container"
+      class="pagination_container"
     >
       <div
-        class="pagination-info"
+        class="pagination_info"
       >
         <p>
           Showing
         </p>
         <select
-          class="select-field"
+          class="select_field"
         >
           <option
             data-testid="option-1"
@@ -261,10 +261,10 @@ exports[`Table component renders LoginForm component 1`] = `
         3
       </div>
       <div
-        class="pagination-pages"
+        class="pagination_pages"
       >
         <span
-          class="pagination-arrow"
+          class="pagination_arrow"
         >
           <svg
             fill="currentColor"
@@ -285,32 +285,32 @@ exports[`Table component renders LoginForm component 1`] = `
           </svg>
         </span>
         <button
-          class="pagination-page active"
+          class="pagination_page active"
         >
           1
         </button>
         <button
-          class="pagination-page "
+          class="pagination_page "
         >
           2
         </button>
         <button
-          class="pagination-page "
+          class="pagination_page "
         >
           3
         </button>
         <button
-          class="pagination-page "
+          class="pagination_page "
         >
           2
         </button>
         <button
-          class="pagination-page "
+          class="pagination_page "
         >
           3
         </button>
         <span
-          class="pagination-arrow"
+          class="pagination_arrow"
         >
           <svg
             fill="currentColor"

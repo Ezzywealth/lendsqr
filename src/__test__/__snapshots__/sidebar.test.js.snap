@@ -50,7 +50,7 @@ exports[`Sidebar component renders Pagination component 1`] = `
           class="side_links_container"
         >
           <a
-            href="users"
+            href="/users"
           >
             <li
               class="side_links active_link"
@@ -435,8 +435,40 @@ exports[`Sidebar component renders Pagination component 1`] = `
               </h4>
             </li>
           </a>
+          <a
+            href=""
+          >
+            <li
+              class="side_links inactive_link"
+            >
+              <img
+                alt="Systems Messages"
+                class="side_links_icon"
+                src="/assets/icons/system_messages.png"
+              />
+              <h4
+                class="side_links_name"
+              >
+                Systems Messages
+              </h4>
+            </li>
+          </a>
         </ul>
       </section>
+      <div
+        class="logout_container"
+      >
+        <img
+          alt="logout button"
+          class="side_links_icon"
+          src="/assets/icons/logout.png"
+        />
+        <h3
+          class="logout_text"
+        >
+          Logout
+        </h3>
+      </div>
     </article>
   </aside>
 </div>

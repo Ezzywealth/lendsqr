@@ -3,7 +3,9 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Sidebar from '../components/Shared/Sidebar';
-
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import store from '../Redux/store';
 // Mock the react-router-dom Link component
 jest.mock('react-router-dom', () => ({
 	Link: ({ to, children }) => <a href={to}>{children}</a>,
@@ -11,12 +13,20 @@ jest.mock('react-router-dom', () => ({
 
 describe('Sidebar component', () => {
 	test('renders Pagination component', () => {
-		const { container } = render(<Sidebar />);
+		const { container } = render(
+			<Provider store={store}>
+				<Sidebar />
+			</Provider>
+		);
 		expect(container).toMatchSnapshot();
 	});
 
 	test('renders sidebar with links', () => {
-		render(<Sidebar />);
+		render(
+			<Provider store={store}>
+				<Sidebar />
+			</Provider>
+		);
 		const dashboardLink = screen.getByText('Dashboard');
 		const usersLink = screen.getByText('users');
 		expect(dashboardLink).toBeInTheDocument();
@@ -24,7 +34,11 @@ describe('Sidebar component', () => {
 	});
 
 	test('activates link on click', () => {
-		render(<Sidebar />);
+		render(
+			<Provider store={store}>
+				<Sidebar />
+			</Provider>
+		);
 
 		const usersLink = screen.getByText('users');
 

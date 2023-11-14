@@ -3,7 +3,7 @@
 exports[`LoginForm renders LoginForm component 1`] = `
 <div>
   <form
-    class="login-form"
+    class="login_form"
   >
     <section>
       <h2
@@ -20,19 +20,19 @@ exports[`LoginForm renders LoginForm component 1`] = `
         class="input"
         placeholder="Email"
         type="text"
-        value=""
+        value="admin@example.com"
       />
       <div
-        class="password-container"
+        class="password_container"
       >
         <input
           class="input"
           placeholder="Password"
           type="password"
-          value=""
+          value="password123"
         />
         <button
-          class="show-hide"
+          class="show_hide"
           type="button"
         >
           <p
@@ -43,10 +43,10 @@ exports[`LoginForm renders LoginForm component 1`] = `
         </button>
       </div>
       <div
-        class="forgot-password"
+        class="forgot_password"
       >
         <a
-          href=""
+          href="#"
         >
           Forgot Password?
         </a>

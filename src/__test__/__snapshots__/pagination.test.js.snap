@@ -3,16 +3,16 @@
 exports[`Pagination component renders Pagination component 1`] = `
 <div>
   <div
-    class="pagination-container"
+    class="pagination_container"
   >
     <div
-      class="pagination-info"
+      class="pagination_info"
     >
       <p>
         Showing
       </p>
       <select
-        class="select-field"
+        class="select_field"
       >
         <option
           data-testid="option-1"
@@ -79,10 +79,10 @@ exports[`Pagination component renders Pagination component 1`] = `
       10
     </div>
     <div
-      class="pagination-pages"
+      class="pagination_pages"
     >
       <span
-        class="pagination-arrow"
+        class="pagination_arrow"
       >
         <svg
           fill="currentColor"
@@ -103,37 +103,37 @@ exports[`Pagination component renders Pagination component 1`] = `
         </svg>
       </span>
       <button
-        class="pagination-page active"
+        class="pagination_page active"
       >
         1
       </button>
       <button
-        class="pagination-page "
+        class="pagination_page "
       >
         2
       </button>
       <button
-        class="pagination-page "
+        class="pagination_page "
       >
         3
       </button>
       <span
-        class="pagination-dots"
+        class="pagination_dots"
       >
         ...
       </span>
       <button
-        class="pagination-page "
+        class="pagination_page "
       >
         9
       </button>
       <button
-        class="pagination-page "
+        class="pagination_page "
       >
         10
       </button>
       <span
-        class="pagination-arrow"
+        class="pagination_arrow"
       >
         <svg
           fill="currentColor"
