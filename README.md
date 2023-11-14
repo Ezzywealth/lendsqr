@@ -141,7 +141,7 @@ You can deploy this project by:
 
 - GitHub: [@Ezzywealth](https://github.com/Ezzywealth)
 - Twitter: [@Ezzywealth](https://twitter.com/EzzyWealth)
-- LinkedIn: [Ezekiel Udiomuno](https://linkedin.com/in/ezekiel-udiomnuno)
+- LinkedIn: [Ezekiel Udiomuno](https://linkedin.com/in/ezekiel-udiomuno)
 
 ## 🔭 Future Features <a name="future-features"></a>
 
