@@ -3,7 +3,7 @@
 exports[`StarRating component renders LoginForm component 1`] = `
 <div>
   <div
-    class="star-rating"
+    class="star_rating"
   >
     <svg
       class="star filled"

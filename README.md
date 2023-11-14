@@ -50,6 +50,7 @@
 - **Retrieved single user details from indexedDb**
 - **Update user status saved**
 - **Login and Logout Functionalities**
+- **Toast notification**
 - **Filter users**
 - **Blacklist user**
 - **Activate user**

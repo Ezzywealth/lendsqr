@@ -42,7 +42,7 @@ const Table = () => {
 									<td>{user.phone_number}</td>
 									<td>{user.date_joined}</td>
 									<td>
-										<span className={`${user.status.toLowerCase() === 'active' ? 'active_bg' : user.status.toLowerCase() === 'inactive' ? 'inactive_bg' : user.status.toLowerCase() === 'blacklisted' ? 'blacklisted_bg' : user.status.toLowerCase() === 'pending' ? 'pending-bg' : ''}`}>{user.status}</span>
+										<span className={`${user.status.toLowerCase() === 'active' ? 'active_bg' : user.status.toLowerCase() === 'inactive' ? 'inactive_bg' : user.status.toLowerCase() === 'blacklisted' ? 'blacklisted_bg' : user.status.toLowerCase() === 'pending' ? 'pending_bg' : ''}`}>{user.status}</span>
 									</td>
 									<td>
 										<BsThreeDotsVertical
