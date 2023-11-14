@@ -32,7 +32,7 @@ const CardHook = ({ name }: Props) => {
 		} else if (name.toLowerCase() === 'users with savings') {
 			setReturnVal(usersWithSavings);
 		}
-	}, [usersLength, activeUsers, usersWithLoans, usersWithSavings]);
+	}, [usersLength, activeUsers, usersWithLoans, usersWithSavings, name]);
 
 	return {
 		usersLength,
