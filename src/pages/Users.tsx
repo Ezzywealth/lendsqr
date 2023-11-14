@@ -11,7 +11,7 @@ import SidebarToggle from '../components/Shared/SidebarToggle';
 
 const Users = () => {
 	const dispatch = useAppDispatch();
-	const { usersError } = useSelector((state: RootState) => state.users);
+	const { usersError,filteredUsers } = useSelector((state: RootState) => state.users);
 
 	useEffect(() => {
 		dispatch(fetchUsers());
@@ -25,8 +25,8 @@ const Users = () => {
 
 	return (
 		<Layout>
-			{usersError ? (
-				<ErrorComponent errorMessage={usersError} reload={reload} />
+			{usersError || filteredUsers.length < 1 ? (
+				<ErrorComponent errorMessage={usersError||'Users data not available'} reload={reload} />
 			) : (
 				<>
 					<section className='back_arrow_toggle_icon'>
