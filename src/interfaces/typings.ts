@@ -35,6 +35,8 @@ export type AuthProps = {
 	admin: undefined | AdminProps;
 	loginLoading: boolean;
 	loginError: string;
+	logoutLoading: boolean;
+	logoutError: string;
 };
 
 export type AppState = {
@@ -52,6 +54,9 @@ export type AppState = {
 	pageSize: number;
 	noOfItems: number;
 	showOptionsModal: boolean;
+	sidebarOpen: boolean;
+	isFiltered: boolean;
+	filteredArray: UserProps[];
 };
 
 export type Guarantor = {
@@ -101,3 +106,11 @@ export type Social = {
 	platform: string;
 	handle: string;
 };
+
+export interface PaginationProps {
+	currentPage: number;
+	totalPages: number;
+	itemsPerPage: number;
+	totalItems: number;
+	onPageChange: (page: number) => void;
+}

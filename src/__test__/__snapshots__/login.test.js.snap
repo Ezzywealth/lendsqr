@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm renders LoginForm component 1`] = `
+<div>
+  <form
+    class="login-form"
+  >
+    <section>
+      <h2
+        class="form_title"
+      >
+        Welcome
+      </h2>
+      <p
+        class="form_subtitle"
+      >
+        Enter details to login
+      </p>
+      <input
+        class="input"
+        placeholder="Email"
+        type="text"
+        value=""
+      />
+      <div
+        class="password-container"
+      >
+        <input
+          class="input"
+          placeholder="Password"
+          type="password"
+          value=""
+        />
+        <button
+          class="show-hide"
+          type="button"
+        >
+          <p
+            class=""
+          >
+            show
+          </p>
+        </button>
+      </div>
+      <div
+        class="forgot-password"
+      >
+        <a
+          href=""
+        >
+          Forgot Password?
+        </a>
+      </div>
+      <button
+        class="submit_btn"
+        type="submit"
+      >
+        Login
+      </button>
+    </section>
+  </form>
+</div>
+`;

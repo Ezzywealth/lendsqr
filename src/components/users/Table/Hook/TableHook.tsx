@@ -28,12 +28,12 @@ const TableHook = () => {
 	const [email, setEmail] = useState('');
 	const [status, setStatus] = useState('');
 	// const [showOptionsModal, setShowOptionsModal] = useState(false);
+	const dispatch = useAppDispatch();
 
 	const handleOptionsModal = (value: boolean) => {
 		dispatch(setShowOptionsModal(value));
 	};
 
-	const dispatch = useAppDispatch();
 	const onClose = () => {
 		console.log('onClose');
 	};

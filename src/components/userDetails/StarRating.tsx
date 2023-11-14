@@ -5,8 +5,7 @@ type Props = {
 	rating?: number;
 };
 
-const StarRating = ({ rating=0 }: Props) => {
-
+const StarRating = ({ rating = 0 }: Props) => {
 	const filledStars = Math.floor(rating);
 	const remainder = 3 - rating;
 
@@ -14,19 +13,19 @@ const StarRating = ({ rating=0 }: Props) => {
 		const stars = [];
 
 		for (let i = 0; i < filledStars; i++) {
-			stars.push(<FaStar key={i} className='star filled' />);
+			stars.push(<FaStar data-testid='star' key={i} className='star filled' />);
 		}
 
 		if (remainder > 0) {
-			stars.push(<FaRegStar color='#ffcf24' key='half' className='star ' />);
+			stars.push(<FaRegStar data-testid='star' color='#ffcf24' key='half' className='star ' />);
 		}
 
 		for (let i = filledStars + 1; i < 3; i++) {
-			stars.push(<FaRegStar color='#ffcf24' key={i} className='star' />);
+			stars.push(<FaRegStar data-testid='star' color='#ffcf24' key={i} className='star' />);
 		}
 		return stars.filter((item) => item !== undefined);
 	};
-	return <div className='star-rating'>{renderStars()}</div>;
+	return <div className='star_rating'>{renderStars()}</div>;
 };
 
 export default StarRating;

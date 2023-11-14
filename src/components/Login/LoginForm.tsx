@@ -1,23 +1,22 @@
 import React from 'react';
-import LoginHook from './LoginHook';
+import AuthHook from './AuthHook';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../Redux/slices/authSlice';
-import { LineWave } from 'react-loader-spinner';
-import LineWaveLoader from '../Shared/LineWaveLoader';
+import { RotatingLines } from 'react-loader-spinner';
 
 const LoginForm = () => {
-	const { showPassword, setShowPassword, handleLogin, email, setEmail, password, setPassword } = LoginHook();
+	const { showPassword, setShowPassword, handleLogin, email, setEmail, password, setPassword } = AuthHook();
 	const { loginLoading } = useSelector((state: RootState) => state.auth);
 
 	return (
-		<form className='login-form' onSubmit={handleLogin}>
+		<form className='login_form' onSubmit={handleLogin}>
 			<section>
 				<h2 className='form_title'>Welcome</h2>
 				<p className='form_subtitle'>Enter details to login</p>
-				<input type='text' placeholder='Email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
-				<div className='password-container'>
-					<input type={showPassword ? 'text' : 'password'} placeholder='Password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
-					<button type='button' className='show-hide'>
+				<input disabled={loginLoading} type='text' placeholder='Email' className='input' value={email} onChange={(e) => setEmail(e.target.value)} />
+				<div className='password_container'>
+					<input disabled={loginLoading} type={showPassword ? 'text' : 'password'} placeholder='Password' className='input' value={password} onChange={(e) => setPassword(e.target.value)} />
+					<button type='button' className='show_hide'>
 						{showPassword ? (
 							<p className='' onClick={() => setShowPassword(!showPassword)}>
 								hide
@@ -29,13 +28,13 @@ const LoginForm = () => {
 						)}
 					</button>
 				</div>
-				<div className='forgot-password'>
-					<a href=''>Forgot Password?</a>
+				<div className='forgot_password'>
+					<a href='#'>Forgot Password?</a>
 				</div>
-				<button type='submit' className='submit_btn'>
+				<button type='submit' className='submit_btn' disabled={loginLoading}>
 					{loginLoading ? (
 						<div className='login_spinner'>
-							<LineWaveLoader color='#fff' />
+							<RotatingLines strokeColor='#fff' strokeWidth='5' animationDuration='0.75' width='20' visible={true} />
 						</div>
 					) : (
 						'Login'

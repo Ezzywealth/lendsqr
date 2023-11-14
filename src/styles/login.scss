@@ -1,162 +1,226 @@
-$primary-color: #213f7d;
-$button-color: #39cdcc;
-$text-color: #545f7d;
-$primary-bg-color: #f5f6fa;
-$login-bg-color: #fff;
-$secondary-color: #545f7d;
-$input-border-color: rgba(#545f7d, 0.15);
-$font-family-bold: 'Avenir Next Bold', sans-serif;
-$font-family-normal: 'Avenir Next', sans-serif;
+@import '_breakpoints.scss';
+
+$primary_color: #213f7d;
+$button_color: #39cdcc;
+$text_color: #545f7d;
+$primary_bg_color: #f5f6fa;
+$login_bg_color: #fff;
+$secondary_color: #545f7d;
+$input_border_color: rgba(#545f7d, 0.15);
+$font_family_bold: 'Avenir Next Bold', sans-serif;
+$font_family_normal: 'Avenir Next', sans-serif;
 
 .container {
-	display: grid;
-	grid-template-columns: repeat(1fr);
-	overflow: hidden;
-	height: 100%;
-	min-height: 100vh;
-	width: 100%;
-	box-sizing: border-box;
+	& {
+		display: grid;
+
+		overflow: hidden;
+		height: 100%;
+		min-height: 100vh;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	@include xs {
+		grid-template-columns: repeat(1fr);
+	}
+
+	@include md {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }
 
-.container-left {
-	padding: 2rem 5rem;
-	display: flex;
-	flex-direction: column;
-	gap: 8rem;
-	background-color: $primary-bg-color;
-	box-sizing: border-box;
+.container_left {
+	& {
+		flex-direction: column;
+		gap: 6rem;
+		background-color: $primary_bg_color;
+		box-sizing: border-box;
+		padding-top: 3rem;
+	}
+	@include xs {
+		display: none;
+	}
+	@include md {
+		display: flex;
+		padding: 1rem;
+	}
+	@include lg {
+		padding: 1.5rem 3.5rem;
+	}
+	@include xxl {
+		padding: 5.25rem;
+	}
 }
 
-.container-right {
-	display: flex;
-	flex-direction: column;
-	gap: 4rem;
-	background-color: $primary-bg-color;
-	box-sizing: border-box;
+.container_right {
+	& {
+		display: flex;
+		flex-direction: column;
+		gap: 4rem;
+		background-color: $primary_bg_color;
+		box-sizing: border-box;
+	}
 }
 
 .image_logo {
-	width: 138.44px;
-	height: 36px;
+	@include xs {
+		width: 100px;
+		height: 30px;
+	}
+	@include md {
+		width: 138.44px;
+		height: 36px;
+	}
 }
 
 .signin_image {
-	width: 600px;
-	height: 337.57px;
+	& {
+		width: 100%;
+		height: 337.57px;
+	}
 }
 
-/**********************************Login From *********************************/
+/**********************************Login Form *********************************/
 
-.login-form {
-	background-color: $login-bg-color;
-	padding: 20px;
-	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	height: 100%;
-	padding: 6.25rem;
-	padding-right: 9.8125rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-sizing: border-box;
-	section {
-		width: 100%;
+.login_form {
+	& {
+		background-color: $login_bg_color;
+		border-radius: 5px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-sizing: border-box;
+		section {
+			width: 100%;
+			max-width: 450px;
+		}
+	}
+
+	@include xs {
+		padding: 1rem;
+	}
+	@include sm {
+		padding: 1rem;
+	}
+	@include base {
+		padding: 1.2rem;
+	}
+	@include md {
+		padding: 0 1.5rem;
+	}
+	@include lg {
+		padding: 0 2.5rem;
+	}
+	@include xl {
+		padding: 0 5.25rem;
 	}
 }
 
 .login_spinner {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	height: 100%;
-	width: 100%;
+	& {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		height: 100%;
+		width: 100%;
+	}
 }
 
 .form_title {
-	font-size: 2.5rem;
-	color: $primary-color;
-	margin: 0;
-	margin-bottom: 10px;
-	font-family: $font-family-bold;
+	& {
+		font-size: 2.5rem;
+		color: $primary_color;
+		margin: 0;
+		margin-bottom: 10px;
+		font-family: $font_family_bold;
+	}
 }
 
 .form_subtitle {
-	font-size: 1.25rem;
-	font-weight: 400;
-	color: $secondary-color;
-	margin: 0;
-	margin-bottom: 3.75rem;
+	& {
+		font-size: 1.25rem;
+		font-weight: 400;
+		color: $secondary_color;
+		margin: 0;
+		margin-bottom: 3.75rem;
+	}
 }
 
 input {
-	width: 100%;
-	height: 50px;
-	border: 2px solid $input-border-color;
-	border-radius: 5px;
-	padding: 0 1rem;
-	box-sizing: border-box;
-	font-size: 1rem;
+	& {
+		width: 100%;
+		height: 50px;
+		border: 2px solid $input_border_color;
+		border-radius: 5px;
+		padding: 0 1rem;
+		box-sizing: border-box;
+		font-size: 1rem;
 
-	background-color: white;
-	color: $text-color;
+		background-color: white;
+		color: $text_color;
+	}
 }
 
 input:focus,
 input:active {
-	outline: none;
-	border-color: $input-border-color;
-	background: none;
+	& {
+		outline: none;
+		border-color: $input_border_color;
+		background: none;
+	}
 }
 
-.password-container {
-	position: relative;
-	margin-top: 1.5rem;
-	box-sizing: border-box;
-}
-
-.show-hide {
-	position: absolute;
-	top: 50%;
-
-	right: 10px;
-	transform: translateY(-50%);
-	cursor: pointer;
-	border: none;
-	background-color: transparent;
-	color: $primary-color;
-	font-weight: 600;
-	font-size: 0.75rem;
-	height: 100%;
-}
-
-.forgot-password {
-	margin-top: 24px;
-	a {
-		font-size: 0.75rem;
-		font-weight: 600;
-		color: $button-color;
+.password_container {
+	& {
+		position: relative;
 		margin-top: 1.5rem;
-		text-decoration: none;
+		box-sizing: border-box;
+	}
+}
+
+.show_hide {
+	& {
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translateY(-50%);
+		cursor: pointer;
+		border: none;
+		background-color: transparent;
+		color: $primary_color;
+		font-weight: 600;
+		font-size: 0.75rem;
+		height: 100%;
+	}
+}
+
+.forgot_password {
+	& {
+		margin-top: 24px;
+		a {
+			font-size: 0.75rem;
+			font-weight: 600;
+			color: $button_color;
+			margin-top: 1.5rem;
+			text-decoration: none;
+		}
 	}
 }
 
 .submit_btn {
-	width: 100%;
-	height: 50px;
-	border: none;
-	border-radius: 5px;
-	background-color: $button-color;
-	color: white;
-	font-size: 1rem;
-	font-weight: 600;
-	margin-top: 1.5rem;
-	cursor: pointer;
-}
-
-/**********************************Media query*********************************/
-@media screen and (min-width: 768px) {
-	.container {
-		grid-template-columns: repeat(2, 1fr);
-		box-sizing: border-box;
+	& {
+		width: 100%;
+		height: 50px;
+		border: none;
+		border-radius: 5px;
+		background-color: $button_color;
+		color: white;
+		font-size: 1rem;
+		font-weight: 600;
+		margin-top: 1.5rem;
+		cursor: pointer;
 	}
 }

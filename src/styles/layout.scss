@@ -1,48 +1,86 @@
-$primary-color: #213f7d;
-$button-color: #39cdcc;
-$text-color: #545f7d;
-$primary-bg-color: #f5f6fa;
-$login-bg-color: #fff;
-$secondary-color: #545f7d;
-$input-border-color: rgba(#545f7d, 0.15);
+@import '_breakpoints.scss';
+
+$primary_color: #213f7d;
+$button_color: #39cdcc;
+$text_color: #545f7d;
+$primary_bg_color: #f5f6fa;
+$login_bg_color: #fff;
+$secondary_color: #545f7d;
+$input_border_color: rgba(#545f7d, 0.15);
 
 .layout {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
+	& {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	background-color: $primary-bg-color;
+	& {
+		margin: 0;
+		padding: 0;
+		background-color: $primary_bg_color;
+	}
 }
 
 .main_section_container {
-	display: flex;
-	align-items: flex-start;
-	width: 100%;
+	& {
+		display: flex;
+		align-items: flex-start;
+		width: 100%;
+		position: relative;
+		padding-top: 75px;
+	}
 }
 
 .aside_container {
-	min-width: 283px;
-	width: 283px;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	align-items: flex-start;
+	& {
+		min-width: 283px;
+		width: 290px;
+		padding: 0;
+		margin: 0;
+		align-items: flex-start;
+		height: 100vh;
+		overflow: auto;
+		background-color: $login-bg-color;
+		position: fixed;
+		top: 90px;
+		left: 0;
+	}
+
+	@include xs {
+		display: none;
+	}
+	@include lg {
+		display: flex;
+	}
 }
 
 a {
-	text-decoration: none;
+	& {
+		text-decoration: none;
+	}
 }
 
 .main_body {
-	padding: 3rem 2rem;
-	width: 100%;
-	box-sizing: border-box;
-	overflow: hidden;
-	width: 100%;
+	& {
+		padding: 3rem 2rem;
+		width: 100%;
+		box-sizing: border-box;
+		overflow: hidden;
+		width: 100%;
+	}
+	@include xs {
+		padding: 1rem;
+	}
+	@include md {
+		padding: 1rem;
+	}
+	@include lg {
+		padding: 2rem;
+		margin-left: 283px;
+	}
 }

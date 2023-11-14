@@ -11,13 +11,20 @@ const initialState: AuthProps = {
 	admin: undefined,
 	loginLoading: false,
 	loginError: '',
+	logoutLoading: false,
+	logoutError: '',
 };
 
 export const loginService = createAsyncThunk<AdminProps, LoginProps>('loginService', async (data) => {
-	console.log(data);
-	const res = await axios.get(`${base_url}`);
+	await axios.get(`${base_url}`);
 	await addUsers();
 	return admin;
+});
+
+export const logoutService = createAsyncThunk('logoutService', async () => {
+	await axios.get(`${base_url}`);
+	localStorage.removeItem('admin');
+	return null;
 });
 
 const authSlice = createSlice({
@@ -44,6 +51,19 @@ const authSlice = createSlice({
 			state.loginLoading = false;
 			state.loginError = action.error.message || 'An error occured';
 		});
+		builder.addCase(logoutService.pending, (state, action) => {
+			state.logoutLoading = true;
+		});
+		builder.addCase(logoutService.fulfilled, (state, action) => {
+			state.logoutLoading = false;
+			state.admin = undefined;
+			localStorage.removeItem('admin');
+			window.location.href = '/';
+		});
+		builder.addCase(logoutService.rejected, (state, action) => {
+			state.logoutLoading = false;
+			state.logoutError = action.error.message || 'An error occured';
+		});
 	},
 });
 
@@ -55,5 +75,7 @@ export type RootState = {
 		admin: AdminProps | undefined;
 		loginLoading: boolean;
 		loginError: string;
+		logoutLoading: boolean;
+		logoutError: string;
 	};
 };

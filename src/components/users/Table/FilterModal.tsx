@@ -1,6 +1,5 @@
 // Modal.js
 import React from 'react';
-
 import TableHook from './Hook/TableHook';
 
 type Props = {
@@ -23,7 +22,7 @@ const Modal = ({ setShowFilterModal }: Props) => {
 
 	return (
 		<div className='modal show'>
-			<div className='modal-content'>
+			<div className='modal_content'>
 				<label>
 					Organization
 					<select value={organization} onChange={(e) => setOrganization(e.target.value)}>
@@ -78,7 +77,7 @@ const Modal = ({ setShowFilterModal }: Props) => {
 						</option>
 					</select>
 				</label>
-				<div className='button-container'>
+				<div className='button_container'>
 					<button onClick={closeModal} className='btn cancel_button'>
 						Cancel
 					</button>

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import '../../styles/layout.scss';
@@ -13,17 +13,20 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-	const { usersLoading, userLoading } = useSelector((state: any) => state.users);
+	const { usersLoading, userLoading, sidebarOpen } = useSelector((state: any) => state.users);
+	const [loading, setLoading] = useState(true);
 	const dispatch = useAppDispatch();
 	const admin = localStorage.getItem('admin') && JSON.parse(obfuscateToken(false, localStorage.getItem('admin') as string));
-
 	useEffect(() => {
-		if (admin) {
+		if (admin?.id) {
 			dispatch(setAdmin(admin));
+		} else {
+			window.location.assign('/');
 		}
+		setLoading(false);
 	}, [dispatch, admin]);
 
-	if (usersLoading || userLoading) {
+	if (usersLoading || userLoading || loading) {
 		return <LoadingSpinner />;
 	}
 
@@ -32,6 +35,9 @@ const Layout = ({ children }: LayoutProps) => {
 			<Navbar />
 			<main className='main_section_container'>
 				<section className='aside_container'>
+					<Sidebar />
+				</section>
+				<section className={`sidebar_mobile ${sidebarOpen ? 'slideInFromLeft' : 'slideOutToLeft'}`}>
 					<Sidebar />
 				</section>
 				<section className='main_body'>{children}</section>
