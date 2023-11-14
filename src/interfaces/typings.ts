@@ -55,6 +55,8 @@ export type AppState = {
 	noOfItems: number;
 	showOptionsModal: boolean;
 	sidebarOpen: boolean;
+	isFiltered: boolean;
+	filteredArray: UserProps[];
 };
 
 export type Guarantor = {

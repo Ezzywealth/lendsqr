@@ -74,21 +74,22 @@ $arrow_bg_color: rgba(#213f7d, 0.1);
 
 	@include md {
 		padding: 1rem 1rem;
-		min-width: 220px;
-		max-width: 250px;
-		flex-grow: 0;
+		min-width: 150px;
+
+		flex-grow: 1;
 	}
 
 	@include lg {
 		padding: 1rem 1rem;
 		min-width: 200px;
+		flex-grow: 1;
 		max-width: 200px;
 	}
 
 	@include xl {
 		padding: 20px 30px;
 		min-width: 150px;
-		max-width: 200px;
+		flex-grow: 1;
 	}
 }
 

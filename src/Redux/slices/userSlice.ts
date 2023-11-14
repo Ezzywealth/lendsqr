@@ -21,6 +21,8 @@ const initialState: AppState = {
 	pageSize: 0,
 	noOfItems: 0,
 	sidebarOpen: false,
+	isFiltered: false,
+	filteredArray: [],
 };
 
 // function to update user status by id
@@ -80,8 +82,11 @@ const usersSlice = createSlice({
 			// set the current page to the payload
 			state.currentPage = currentPage;
 
+			// get the users array to be used based on the isFiltered state
+			const array = state.isFiltered ? state.filteredArray : state.users;
+
 			// slice the users array to get the users for the current page
-			state.filteredUsers = state.users.slice((currentPage - 1) * state.pageSize, currentPage * state.pageSize);
+			state.filteredUsers = array.slice((currentPage - 1) * state.pageSize, currentPage * state.pageSize);
 		},
 		setItemsPerPage: (state, action) => {
 			// get the number of items to be displayed per page from the payload
@@ -135,12 +140,17 @@ const usersSlice = createSlice({
 			});
 			// set the state filtered users array to the filtered users
 			state.filteredUsers = filteredUsers.slice(0, state.pageSize);
+
+			// set the filtered array to the filtered users
+			state.filteredArray = filteredUsers;
+
 			// set the total pages to the number of pages needed to display the filtered users
 			state.totalPages = Math.ceil(filteredUsers.length / state.pageSize);
 			// set the current page to 1
 			state.currentPage = 1;
 			// set the number of items to the number of filtered users
 			state.noOfItems = filteredUsers.length;
+			state.isFiltered = true;
 		},
 	},
 	extraReducers: (builder) => {
