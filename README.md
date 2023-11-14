@@ -1,31 +1,31 @@
 <a name="readme-top"></a>
 
-<div>
-
-  <h1><b>Lendsqr</b></h1><br/><br/>
-
-</div>
+# Lendsqr
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
+- [About the Project](#about-project)
+  - [Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
+  - [Live Demo](#live-demo)
+- [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
   - [Usage](#usage)
   - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [Authors](#authors)
+- [Future Features](#future-features)
+- [Contributing](#contributing)
+- [Show your support](#support)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
-# Lendsqr Dasboard <a name="about-project"></a>
+## About the Project <a name="about-project"></a>
+
+This project represents a segment of the Lendsqr Admin Console. For a comprehensive overview, you can explore the details in the linked video below.
+
+[Watch Video!!!](https://vimeo.com/884299681/d41c65a189?share=copy/)
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -61,7 +61,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Clike Here!!!](https://ezekiel-udiomuno-lendsqr-fe-test.vercel.app//)
+[Click Here!!!](https://ezekiel-udiomuno-lendsqr-fe-test.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
